@@ -14,7 +14,7 @@ class SuperPlayer extends Player{
 
     public function __construct(SourceInterface $interface, $clientID, $ip, $port){
         parent::__construct($interface, $clientID, $ip, $port);
-        $this->core = $this->getServer()->getPluginManager()->getPlugin("MinePocketCore");
+        $this->core = $this->getServer()->getPluginManager()->getPlugin("Core");
         $this->coreSession = new CoreSession($this->core, $this);
         $this->core->getLanguagesAPI()->getPlayerLanguage($this);
     }

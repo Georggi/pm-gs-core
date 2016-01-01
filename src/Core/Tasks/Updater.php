@@ -5,6 +5,6 @@ use Core\BaseFiles\BaseUpdater;
 
 class Updater extends BaseUpdater{
     public function __construct($directory){
-        parent::__construct($directory, "core", "MinePocketCore");
+        parent::__construct($directory, "core", "Core");
     }
 }
