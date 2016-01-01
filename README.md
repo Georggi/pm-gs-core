@@ -14,10 +14,10 @@ Well, this will be just a *TODO* or *In development* list... Nothing more xD Wel
 * Games manager
     - Dynamic arena managing
 
-Priority list:
-* HIGH Finish Core
-* HIGH Finish Auth
-* HIGH Finish GamesCore
-* MEDIUM Finish Hide&Seek
-* LOW Multi-Language API
-* LOW Maps
+* Priority list:
+* * HIGH Finish Core
+* * HIGH Finish Auth
+* * HIGH Finish GamesCore
+* * MEDIUM Finish Hide&Seek
+* * LOW Multi-Language API
+* * LOW Maps
