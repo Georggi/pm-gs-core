@@ -1,9 +1,9 @@
 <?php
-namespace MinePocketCore\Tasks\Timers;
+namespace Core\Tasks\Timers;
 
-use MinePocketCore\BaseFiles\BaseMiniGame;
-use MinePocketCore\BaseFiles\BaseTask;
-use MinePocketCore\Loader;
+use Core\BaseFiles\BaseMiniGame;
+use Core\BaseFiles\BaseTask;
+use Core\Loader;
 
 class GameStart extends BaseTask{
     /** @var BaseMiniGame */

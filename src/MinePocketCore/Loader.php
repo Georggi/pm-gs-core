@@ -1,16 +1,16 @@
 <?php
-namespace MinePocketCore;
+namespace Core;
 
-#use MinePocketCore\Tasks\Updater;
-use MinePocketCore\BaseFiles\BaseMiniGame;
-use MinePocketCore\BaseFiles\MiniGameProject;
-use MinePocketCore\InternalAPI\Charts;
-use MinePocketCore\InternalAPI\Languages;
-use MinePocketCore\InternalAPI\SuperPlayer;
-use MinePocketCore\Tasks\DatabasePing;
-use MinePocketCore\Tasks\DataCleaner;
-use MinePocketCore\Tasks\PopupMessages\PopupSend;
-use MinePocketCore\Tasks\PopupMessages\RandomizeMessages;
+#use Core\Tasks\Updater;
+use Core\BaseFiles\BaseMiniGame;
+use Core\BaseFiles\MiniGameProject;
+use Core\InternalAPI\Charts;
+use Core\InternalAPI\Languages;
+use Core\InternalAPI\SuperPlayer;
+use Core\Tasks\DatabasePing;
+use Core\Tasks\DataCleaner;
+use Core\Tasks\PopupMessages\PopupSend;
+use Core\Tasks\PopupMessages\RandomizeMessages;
 use pocketmine\item\Item;
 use pocketmine\level\Level;
 use pocketmine\permission\PermissionAttachment;

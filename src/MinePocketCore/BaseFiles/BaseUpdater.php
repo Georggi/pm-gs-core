@@ -1,5 +1,5 @@
 <?php
-namespace MinePocketCore\BaseFiles;
+namespace Core\BaseFiles;
 
 use pocketmine\scheduler\AsyncTask;
 

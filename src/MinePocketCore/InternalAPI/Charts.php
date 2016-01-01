@@ -1,7 +1,7 @@
 <?php
-namespace MinePocketCore\InternalAPI;
+namespace Core\InternalAPI;
 
-use MinePocketCore\Loader;
+use Core\Loader;
 
 class Charts{
     /** @var Loader */

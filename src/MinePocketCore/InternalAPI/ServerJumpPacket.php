@@ -1,5 +1,5 @@
 <?php
-namespace MinePocketCore\InternalAPI;
+namespace Core\InternalAPI;
 
 use pocketmine\network\protocol\DataPacket;
 

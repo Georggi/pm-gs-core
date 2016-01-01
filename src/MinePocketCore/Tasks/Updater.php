@@ -1,7 +1,7 @@
 <?php
-namespace MinePocketCore\Tasks;
+namespace Core\Tasks;
 
-use MinePocketCore\BaseFiles\BaseUpdater;
+use Core\BaseFiles\BaseUpdater;
 
 class Updater extends BaseUpdater{
     public function __construct($directory){

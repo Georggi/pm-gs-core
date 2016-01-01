@@ -1,8 +1,8 @@
 <?php
-namespace MinePocketCore\BaseFiles;
+namespace Core\BaseFiles;
 
 
-use MinePocketCore\Loader;
+use Core\Loader;
 use pocketmine\block\Air;
 use pocketmine\level\Level;
 use pocketmine\level\Location;

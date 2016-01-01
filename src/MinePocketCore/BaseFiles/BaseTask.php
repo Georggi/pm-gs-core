@@ -1,7 +1,7 @@
 <?php
-namespace MinePocketCore\BaseFiles;
+namespace Core\BaseFiles;
 
-use MinePocketCore\Loader;
+use Core\Loader;
 use pocketmine\scheduler\PluginTask;
 
 abstract class BaseTask extends PluginTask{

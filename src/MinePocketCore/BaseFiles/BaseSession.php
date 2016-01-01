@@ -1,7 +1,7 @@
 <?php
-namespace MinePocketCore\BaseFiles;
+namespace Core\BaseFiles;
 
-use MinePocketCore\InternalAPI\SuperPlayer;
+use Core\InternalAPI\SuperPlayer;
 
 class BaseSession{
     /** @var SuperPlayer */

@@ -1,10 +1,10 @@
 <?php
-namespace MinePocketCore\BaseFiles;
+namespace Core\BaseFiles;
 
-use MinePocketCore\Loader;
-use MinePocketCore\InternalAPI\SuperPlayer;
-use MinePocketCore\Tasks\Timers\GameEnd;
-use MinePocketCore\Tasks\Timers\GameStart;
+use Core\Loader;
+use Core\InternalAPI\SuperPlayer;
+use Core\Tasks\Timers\GameEnd;
+use Core\Tasks\Timers\GameStart;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityMotionEvent;
 use pocketmine\event\player\PlayerDeathEvent;

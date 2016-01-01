@@ -1,8 +1,8 @@
 <?php
-namespace MinePocketCore\Tasks;
+namespace Core\Tasks;
 
-use MinePocketCore\BaseFiles\BaseTask;
-use MinePocketCore\Loader;
+use Core\BaseFiles\BaseTask;
+use Core\Loader;
 
 class DataCleaner extends BaseTask{
     public function __construct(Loader $plugin){

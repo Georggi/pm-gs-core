@@ -1,9 +1,9 @@
 <?php
-namespace MinePocketCore\InternalAPI;
+namespace Core\InternalAPI;
 
 
-use MinePocketCore\Loader;
-use MinePocketCore\Tasks\LoginTasks;
+use Core\Loader;
+use Core\Tasks\LoginTasks;
 use pocketmine\permission\PermissionAttachment;
 
 class CoreSession{

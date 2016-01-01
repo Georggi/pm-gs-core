@@ -1,7 +1,7 @@
 <?php
-namespace MinePocketCore\Tasks\PopupMessages;
+namespace Core\Tasks\PopupMessages;
 
-use MinePocketCore\BaseFiles\BaseTask;
+use Core\BaseFiles\BaseTask;
 
 class RandomizeMessages extends BaseTask{
     /** @var int|null */

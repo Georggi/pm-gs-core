@@ -1,9 +1,9 @@
 <?php
-namespace MinePocketCore\Tasks;
+namespace Core\Tasks;
 
-use MinePocketCore\BaseFiles\BaseTask;
-use MinePocketCore\Loader;
-use MinePocketCore\InternalAPI\SuperPlayer;
+use Core\BaseFiles\BaseTask;
+use Core\Loader;
+use Core\InternalAPI\SuperPlayer;
 
 class LoginTasks extends BaseTask{
     /**@var SuperPlayer */

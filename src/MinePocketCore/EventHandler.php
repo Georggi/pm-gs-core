@@ -1,7 +1,7 @@
 <?php
-namespace MinePocketCore;
+namespace Core;
 
-use MinePocketCore\InternalAPI\SuperPlayer;
+use Core\InternalAPI\SuperPlayer;
 use pocketmine\block\Air;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;

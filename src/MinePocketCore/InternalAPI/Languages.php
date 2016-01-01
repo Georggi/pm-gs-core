@@ -1,7 +1,7 @@
 <?php
-namespace MinePocketCore\InternalAPI;
+namespace Core\InternalAPI;
 
-use MinePocketCore\Loader;
+use Core\Loader;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 
