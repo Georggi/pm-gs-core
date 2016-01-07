@@ -1,9 +1,9 @@
 <?php
 namespace Core\Tasks\PopupMessages;
 
-use Core\BaseFiles\BaseTask;
+use Core\InternalAPI\CoreTask;
 
-class RandomizeMessages extends BaseTask{
+class RandomizeMessages extends CoreTask{
     /** @var int|null */
     private $maxCount = null;
 

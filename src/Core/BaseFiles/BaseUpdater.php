@@ -1,20 +1,22 @@
 <?php
 namespace Core\BaseFiles;
 
+use Core\InternalAPI\CoreInstance;
+use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\AsyncTask;
 
 class BaseUpdater extends AsyncTask{
+    /** @var PluginBase */
+    private $plugin;
     /** @var string */
     private $fileDirectory;
     /** @var string */
     private $url;
-    /** @var string */
-    private $filename;
 
-    public function __construct($fileDirectory, $url, $filename){
-        $this->url = "https://bitbucket.org/minepocket-dev/" . $url . "/downloads/" . $filename;
-        $this->filename = $filename . ".phar";
-        $this->fileDirectory = $fileDirectory . $this->filename;
+    public function __construct(CoreInstance $plugin, $filename){
+        $this->plugin = $plugin;
+        $this->url = "https://bitbucket.org/minepocket-dev/" . strtolower($filename) . "/downloads/" . ($filename = $filename . ".phar");
+        $this->fileDirectory = $plugin->getServer()->getPluginPath() . $filename;
     }
 
     public function onRun(){

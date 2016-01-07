@@ -1,24 +1,17 @@
 <?php
 namespace Core\InternalAPI;
 
-use Core\Loader;
+use Core\BaseFiles\BaseAPI;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 
-class Languages{
-    /** @var Loader */
-    private $plugin;
-
-    public function __construct(Loader $core){
-        $this->plugin = $core;
-    }
-
+class Languages extends BaseAPI{
     /** @var array */
-    private $english = [
+    private /** @noinspection PhpUnusedPrivateFieldInspection */
+        $english = [
         "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
-            TextFormat::YELLOW . "Welcome to " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
-            TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
-            TextFormat::AQUA . "Welcome back " . TextFormat::GREEN . "@player" . TextFormat::AQUA . "!",
+            TextFormat::YELLOW . "Welcome " . TextFormat::GREEN . "%0" . " to " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/",
         "auth" => [
             "login" => [
                 "join" => TextFormat::YELLOW . "Please type your password in chat to login...",
@@ -52,20 +45,31 @@ class Languages{
         ], "popups" => [
             TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Have " . TextFormat::GREEN . "Fun" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
         ], "kick" => [
-            "sub" => "\n" . TextFormat::YELLOW . "Be sure to visit us at:\n" . TextFormat::ITALIC . TextFormat::AQUA . "MinePocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+            "sub" => TextFormat::YELLOW . "Be sure to visit us at:\n" . TextFormat::ITALIC . TextFormat::AQUA . "MinePocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
             "notlogged" => TextFormat::YELLOW . "You were kicked because you '" . TextFormat::RED . "Didn't logged in" . TextFormat::YELLOW . "'!",
             "loggedin" => TextFormat::YELLOW . "You were kicked because a player with the same " . TextFormat::ITALIC . "username" . TextFormat::RED . TextFormat::YELLOW . " is already logged in.",
             "advertising" => TextFormat::YELLOW . "You were kicked for '" . TextFormat::RED . "Advertising" . TextFormat::YELLOW . "'!",
             "swear" => TextFormat::YELLOW . "You were kicked for '" . TextFormat::RED . "Swearing" . TextFormat::YELLOW . "'!",
             "banned" => TextFormat::YELLOW . "You where kicked because you're '" . TextFormat::RESET . "Banned" . TextFormat::YELLOW . "'!"
+        ], "games" => [
+            "start" => TextFormat::YELLOW . "The game starts in " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
+            "timer" => TextFormat::GREEN . "Time left: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
+            "time" => [
+                "second" => "second",
+                "seconds" => "seconds",
+                "minute" => "minute",
+                "minutes" => "minutes",
+                "hour" => "hour",
+                "hours" => "hours"
+            ]
         ]
     ];
     /** @var array */
-    private $spanish = [
+    private /** @noinspection PhpUnusedPrivateFieldInspection */
+        $spanish = [
         "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
-            TextFormat::YELLOW . "¡Bienvenido a la " . TextFormat::LIGHT_PURPLE . "Red " . TextFormat::AQUA . "MinePocket" . TextFormat::YELLOW . "!\n" .
-            TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
-            TextFormat::AQUA . "¡Bienvenido " . TextFormat::GREEN . "@player" . TextFormat::AQUA . "!",
+            TextFormat::YELLOW . "¡Bienvenido " . TextFormat::GREEN . "%0" . " a la " . TextFormat::LIGHT_PURPLE . "Red " . TextFormat::AQUA . "MinePocket" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/",
         "auth" => [
             "login" => [
                 "join" => TextFormat::YELLOW . "Porfavor escribe la contraseña en el chat para continuar...",
@@ -98,27 +102,138 @@ class Languages{
         ], "popups" => [
             TextFormat::LIGHT_PURPLE . ":D " . TextFormat::RED . "¡" . TextFormat::AQUA . "Diviertete " . TextFormat::GREEN . "Mucho" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
         ], "kick" => [
-            "sub" => "\n" . TextFormat::YELLOW . "Asegurate de visitarnos en:\n" . TextFormat::ITALIC . TextFormat::AQUA . TextFormat::ITALIC . TextFormat::UNDERLINE . "http://www.MinePocket.com",
+            "sub" => TextFormat::YELLOW . "Asegurate de visitarnos en:\n" . TextFormat::ITALIC . TextFormat::AQUA . TextFormat::ITALIC . TextFormat::UNDERLINE . "http://www.MinePocket.com",
             "notlogged" => TextFormat::YELLOW . "¡Has salido del juego debido a que '" . TextFormat::RED . "No iniciaste sesión" . TextFormat::YELLOW . "'!",
             "loggedin" => TextFormat::YELLOW . "Has salido del juego debido a que otro usuario con el mismo " . TextFormat::ITALIC . "nombre" . TextFormat::RESET . TextFormat::YELLOW . " ya ha iniciado sesión.",
             "advertising" => TextFormat::YELLOW . "¡Has salido del juego por '" . TextFormat::RED . "Anunciar sin permiso" . TextFormat::YELLOW . "'!",
             "swear" => TextFormat::YELLOW . "¡Has salido del juego por utilizar palabras '" . TextFormat::RED . "Ofensivas" . TextFormat::YELLOW . "'!",
             "banned" => TextFormat::YELLOW . "¡Has salido del juego debido a que estas '" . TextFormat::RED . "Banneado" . TextFormat::YELLOW . "'!"
+        ], "games" => [
+            "start" => TextFormat::YELLOW . "El juego comienza en " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
+            "timer" => TextFormat::GREEN . "Tiempo restante: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
+            "time" => [
+                "second" => "segundo",
+                "seconds" => "segundos",
+                "minute" => "minutes",
+                "minutes" => "minutos",
+                "hour" => "hora",
+                "hours" => "horas"
+            ]
+        ]
+    ];
+    /** @var array */
+    private /** @noinspection PhpUnusedPrivateFieldInspection */
+        $ukrainian = [
+        "motd" => TextFormat::YELLOW . "/право/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/ліво/\n" .
+            TextFormat::YELLOW . "Ласкаво просимо до " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "/право/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/ліво/\n" .
+            TextFormat::AQUA . "З поверненням " . TextFormat::GREEN . "%0" . TextFormat::AQUA . "!" . TextFormat::RED . "\nPlease change to the new format. ATTE:" . TextFormat::BLUE . "iksaku",        //%0 is a player - just to not forget
+        "auth" => [
+            "login" => [
+                "join" => TextFormat::YELLOW . "Будь ласка, введіть свій пароль в чат для входу...",
+                "successful" => TextFormat::GREEN . "Ви успішно ввійшли!",
+                "failure" => TextFormat::DARK_GRAY . "Упс, щось пішло не так під час аутентифікації.\n" . TextFormat::DARK_GRAY . "Будь ласка, спробуйте знову...",
+                "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "увійдіть" . TextFormat::GRAY . "\" щоб грати!"
+            ], "register" => [
+                "join" => TextFormat::LIGHT_PURPLE . "Схоже що цей аккаунт не зареєстрований,\n Але ви можете зареєструвати його зараз!\n" . TextFormat::AQUA . "Будь ласка, введіть пароль в чат " . TextFormat::YELLOW . "(Ніхто його не побачить)...",
+                "successful" => TextFormat::GRAY . "Ви успішно зареєструвалися!",
+                "failure" => TextFormat::DARK_GRAY . "Упс, щось пішо не так під час реєстрації.\n" . TextFormat::DARK_GRAY . "Будь ласка, не забувайте що кожний E-MAIL повинен бути унікальним.\n" . TextFormat::DARK_GRAY . "Будь ласка спробуйте знову...",
+                "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "Зареєструйтеся" . TextFormat::GRAY . "\" щоб грати!",
+                // The following section is for "registration steps" :3
+                "steps" => [
+                    TextFormat::AQUA . "Please type a password in chat " . TextFormat::YELLOW . "(Nobody will see it)...", // Step 0
+                    TextFormat::YELLOW . "Please confirm your new password...", // Step 1
+                    TextFormat::YELLOW . "Please enter your e-mail address...", // Step 2
+                    TextFormat::YELLOW . "Please confirm your e-mail address...", // Step 3
+                ],
+                "password" => [
+                    "confirm" => TextFormat::GREEN . "Very well! " . TextFormat::YELLOW . "Please confirm your new password...",
+                    "invalid" => TextFormat::RED . "You have entered an invalid password!\n" . TextFormat::AQUA . "Please consider the following rule:\n" . TextFormat::YELLOW . "\t- No spaces\n" . TextFormat::AQUA . "Please type another password...",
+                    "match" => TextFormat::RED . "No! " . TextFormat::YELLOW . "The passwords doesn't match! Let's start again...\n" . TextFormat::AQUA . "Please type a password...",
+                    "success" => TextFormat::GREEN . "Awesome! " . TextFormat::YELLOW . "Now please enter your e-mail address..."
+                ], "email" => [
+                    "confirm" => TextFormat::GREEN . "Good job! " . TextFormat::YELLOW . "Please confirm your e-mail address...",
+                    "invalid" => TextFormat::RED . "Wrong! " . TextFormat::YELLOW . "This e-mail address is invalid!\n" . TextFormat::AQUA . "Please type a valid e-mail...",
+                    "match" => TextFormat::RED . "What?! " . TextFormat::YELLOW . "The e-mails doesn't match! Let's try again...\n" . TextFormat::AQUA . "Please type your e-mail...",
+                    "success" => TextFormat::GREEN . "Excellent! " . TextFormat::YELLOW . "Please wait a moment while we create your account..."
+                ]
+            ]
+        ], "popups" => [
+            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Have " . TextFormat::GREEN . "Fun" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
+        ], "kick" => [
+            "sub" => TextFormat::YELLOW . "Be sure to visit us at:\n" . TextFormat::ITALIC . TextFormat::AQUA . "MinePocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+            "notlogged" => TextFormat::YELLOW . "You were kicked because you '" . TextFormat::RED . "Didn't logged in" . TextFormat::YELLOW . "'!",
+            "loggedin" => TextFormat::YELLOW . "You were kicked because a player with the same " . TextFormat::ITALIC . "username" . TextFormat::RED . TextFormat::YELLOW . " is already logged in.",
+            "advertising" => TextFormat::YELLOW . "You were kicked for '" . TextFormat::RED . "Advertising" . TextFormat::YELLOW . "'!",
+            "swear" => TextFormat::YELLOW . "You were kicked for '" . TextFormat::RED . "Swearing" . TextFormat::YELLOW . "'!",
+            "banned" => TextFormat::YELLOW . "You where kicked because you're '" . TextFormat::RESET . "Banned" . TextFormat::YELLOW . "'!"
+        ], "games" => [
+            "start" => TextFormat::YELLOW . "The game starts in " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
+            "timer" => TextFormat::GREEN . "Time left: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
+            "time" => [
+                "second" => "second",
+                "seconds" => "seconds",
+                "minute" => "minute",
+                "minutes" => "minutes",
+                "hour" => "hour",
+                "hours" => "hours"
+            ]
         ]
     ];
 
     /**
      * @param string $message
+     * @param array $args
      * @param string $language
      * @return array|string
      */
-    public function getTranslation($message, $language){
-        if(substr($message, 0, 1) !== "%"){
+    public function getTranslation($message, array $args, $language){
+        if(!is_string($message) || substr($message, 0, 1) !== "%"){
             return $message;
         }
-        $message = str_replace("%", "", $message);
+        $messages = [];
+        foreach(explode("%", $message) as $string){
+            if(trim($string) !== ""){
+                if(is_string($base = $this->searchTranslation($string, $language))){
+                    for($i = 0; $i < count($args); $i++){
+                        if(is_array($args) && isset($args[$i]) && is_array($args[$i])){
+                            $wArgArgs = $args[$i][1];
+                            $wArg = $args[$i][0];
+                        }else{
+                            $wArgArgs = [];
+                            $wArg = is_array($args) && isset($args[0]) ? $args[0] : $args;
+                        }
+                        $base = str_replace("%$i", $this->getTranslation($wArg, $wArgArgs, $language), $base); // For multiple translations imploding...
+                    }
+                    $messages[] = str_replace(trim($string), $base, $string); // Just to have respect about spaces, tabs or new lines :P
+                }else{
+                    $messages[] = $string;
+                }
+            }
+        }
+        return implode("", $messages); // Again respecting spaces, tabs and new lines...
+    }
+
+    /**
+     * @param string $key
+     * @param string $language
+     * @return array|bool
+     */
+    public function getArray($key, $language){
+        if(is_array($a = $this->searchTranslation($key, $language))){
+            return $a;
+        }
+        return false;
+    }
+
+    /**
+     * @param string $string
+     * @param string $language
+     * @return array|string
+     */
+    private function searchTranslation($string, $language){
         $language = $this->identifyLanguage($language);
-        $vars = \explode(".", $message);
+        $vars = \explode(".", trim($string));
         $base = \array_shift($vars);
         if(isset($language[$base])){
             $base = $language[$base];
@@ -133,29 +248,22 @@ class Languages{
     }
 
     /**
-     * @param string $key
-     * @param string $language
-     * @return array|bool
-     */
-    public function getArray($key, $language){
-        if(is_array($a = $this->identifyLanguage($language)[$key])){
-            return $a;
-        }
-        return false;
-    }
-
-    /**
      * @param array $language
      * @return array
      */
     private function identifyLanguage($language){
         switch(strtolower($language)){
             case "english":
+            case "en":
             default:
                 $language = "english";
                 break;
             case "spanish":
+            case "es":
                 $language =  "spanish";
+                break;
+            case "ukrainian":
+                $language = "ukrainian";
                 break;
         }
         return $this->{$language};
@@ -166,10 +274,10 @@ class Languages{
      * @return string
      */
     public function getPlayerLanguage(SuperPlayer $player){
-        if($player->getSession()->getLanguage() === null){
+        if($player->getLanguage() === null){
             $this->setPlayerLanguageByCountry($player);
         }
-        return $player->getSession()->getLanguage();
+        return $player->getLanguage();
     }
 
     /**
@@ -177,10 +285,10 @@ class Languages{
      * @return string
      */
     public function getPlayerCountry(SuperPlayer $player){
-        if($player->getSession()->getCountry() === null){
+        if($player->getCountry() === null){
             $this->setPlayerCountryByIP($player);
         }
-        return $player->getSession()->getCountry();
+        return $player->getCountry();
     }
 
     /**
@@ -241,8 +349,9 @@ class Languages{
             case "VE":
                 $l = "spanish";
                 break;
+            // TODO Ukrainian
         }
-        $player->getSession()->setLanguage($l);
+        $player->setLanguage($l);
     }
 
     /**
@@ -260,6 +369,6 @@ class Languages{
         }else{
             $country = "UNKNOWN";
         }
-        $player->getSession()->setCountry($country);
+        $player->setCountry($country);
     }
 }

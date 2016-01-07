@@ -1,10 +1,13 @@
 <?php
-namespace Core\BaseFiles;
+namespace Core\InternalAPI\Events\Disguise;
 
 use Core\InternalAPI\SuperPlayer;
-use Core\Loader;
+use pocketmine\event\Cancellable;
+use pocketmine\event\plugin\PluginEvent;
 
-abstract class BaseSession{
+class DisguiseEvent extends PluginEvent implements Cancellable{
+    public static $handlerList = null;
+
     /** @var SuperPlayer */
     private $player;
 
@@ -12,14 +15,8 @@ abstract class BaseSession{
      * @param SuperPlayer $player
      */
     public function __construct(SuperPlayer $player){
+        parent::__construct($player->getCore());
         $this->player = $player;
-    }
-
-    /**
-     * @return Loader
-     */
-    public function getCore(){
-        return $this->getPlayer()->getCore();
     }
 
     /**

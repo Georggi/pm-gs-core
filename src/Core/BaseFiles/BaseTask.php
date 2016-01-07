@@ -1,22 +1,22 @@
 <?php
 namespace Core\BaseFiles;
 
-use Core\Loader;
+use Core\InternalAPI\CoreInstance;
 use pocketmine\scheduler\PluginTask;
 
 abstract class BaseTask extends PluginTask{
-    /** @var Loader */
+    /** @var CoreInstance */
     private $plugin;
 
-    public function __construct(Loader $plugin){
+    public function __construct(CoreInstance $plugin){
         parent::__construct($plugin);
         $this->plugin = $plugin;
     }
 
     /**
-     * @return Loader
+     * @return CoreInstance
      */
-    public final function getPlugin(){
+    public function getPlugin(){
         return $this->plugin;
     }
 }

@@ -1,16 +1,9 @@
 <?php
 namespace Core\InternalAPI;
 
-use Core\Loader;
+use Core\BaseFiles\BaseAPI;
 
-class Charts{
-    /** @var Loader */
-    private $plugin;
-
-    public function __construct(Loader $core){
-        $this->plugin = $core;
-    }
-
+class Charts extends BaseAPI{
     /** @var array */
     private $smiles = [
         /* IMPORTANT NOTE:
@@ -83,9 +76,9 @@ class Charts{
      */
     public function getAll(){
         return [
-            "smiles" => $this->$smiles,
-            "allowedAds" => $this->$allowedAds,
-            "badWords" => $this->$bannedWords
+            "smiles" => $this->smiles,
+            "allowedAds" => $this->allowedAds,
+            "badWords" => $this->bannedWords
         ];
     }
 
@@ -106,7 +99,7 @@ class Charts{
      */
     public function coloredChat($string){
         return preg_replace_callback(
-            "/(\\\&|\&)[0-9a-fk-or]/", // This checks for any match with the "&" character, with and without the prefixed "\" (Allowing to escape the color code)
+            "/(\\\&|\&)[^0-9a-fk-or]/", // This checks for any match with the "&" character, with and without the prefixed "\" (Allowing to escape the color code)
             function(array $matches){ // Lambda expression to return the correct values of the "Replacement"
                 return str_replace("\\§", "&", str_replace("&", "§", $matches[0])); // Replace "&" to "§", and escape "\§" to "&"
             },
@@ -120,7 +113,8 @@ class Charts{
      */
     public function convertSmiles($string){
         foreach($this->get("smiles") as $k => $v){ // Remember the fixed array, for more information, please check the "Charts" class and comments
-            $string = str_replace($v, chr((int) $k), $string);
+            //$string = str_replace($v, chr((int) $k), $string);
+            $string = str_replace($v, "", $string);
         }
         return $string;
     }

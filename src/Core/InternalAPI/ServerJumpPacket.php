@@ -4,13 +4,10 @@ namespace Core\InternalAPI;
 use pocketmine\network\protocol\DataPacket;
 
 class ServerJumpPacket extends DataPacket{
-    protected $ip;
-    protected $port = 19132;
+    const NETWORK_ID = 0x1b;
 
-    public function __construct($ip, $port){
-        $this->ip = $ip;
-        $this->port = $port;
-    }
+    public $ip;
+    public $port = 19132;
 
     public function pid(){
         return 0x1b;

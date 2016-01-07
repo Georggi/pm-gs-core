@@ -1,11 +1,11 @@
 <?php
 namespace Core\Tasks;
 
-use Core\BaseFiles\BaseTask;
+use Core\InternalAPI\CoreTask;
 use Core\Loader;
 use Core\InternalAPI\SuperPlayer;
 
-class LoginTasks extends BaseTask{
+class LoginTasks extends CoreTask{
     /**@var SuperPlayer */
     public $player;
 

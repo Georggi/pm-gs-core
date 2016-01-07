@@ -1,10 +1,10 @@
 <?php
 namespace Core\Tasks;
 
-use Core\BaseFiles\BaseTask;
+use Core\InternalAPI\CoreTask;
 use Core\Loader;
 
-class DataCleaner extends BaseTask{
+class DataCleaner extends CoreTask{
     public function __construct(Loader $plugin){
         parent::__construct($plugin);
     }
