@@ -5,6 +5,9 @@ use Core\Loader;
 use pocketmine\plugin\PluginBase;
 
 abstract class CoreInstance extends PluginBase{
+    /** @var Loader */
+    private $core;
+
     public function onDisable(){
         //$this->getServer()->getScheduler()->scheduleAsyncTask(new BaseUpdater($this, $this->updaterName()));
     }
@@ -12,7 +15,12 @@ abstract class CoreInstance extends PluginBase{
     /**
      * @return Loader
      */
-    public abstract function getCore();
+    public function getCore(){
+        if(!$this->core){
+            $this->core = $this->getServer()->getPluginManager()->getPlugin("Core");
+        }
+        return $this->core;
+    }
 
     /**
      * @return string
