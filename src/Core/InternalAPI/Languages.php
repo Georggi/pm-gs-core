@@ -254,7 +254,6 @@ class Languages extends BaseAPI{
         switch(strtolower($language)){
             case "english":
             case "en":
-                break;
             default:
                 $language = "english";
                 break;
@@ -324,7 +323,6 @@ class Languages extends BaseAPI{
             case "ZA":
             case "ZM":
             case "ZW":
-                break;
             default:
                 $l = "english";
                 break;
