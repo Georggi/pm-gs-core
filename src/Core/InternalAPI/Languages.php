@@ -263,7 +263,9 @@ class Languages extends BaseAPI{
                 $language =  "spanish";
                 break;
             case "ukrainian":
+            case "ua":
                 $language = "ukrainian";
+                break;
         }
         return $this->{$language};
     }
@@ -349,8 +351,9 @@ class Languages extends BaseAPI{
             case "VE":
                 $l = "spanish";
                 break;
-            case "UK":
+            case "UA":
                 $l = "ukrainian";
+                break;
         }
         $player->setLanguage($l);
     }
