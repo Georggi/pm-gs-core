@@ -124,10 +124,9 @@ class Languages extends BaseAPI{
     /** @var array */
     private /** @noinspection PhpUnusedPrivateFieldInspection */
         $ukrainian = [
-        "motd" => TextFormat::YELLOW . "/право/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/ліво/\n" .
-            TextFormat::YELLOW . "Ласкаво просимо до " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
-            TextFormat::YELLOW . "/право/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/ліво/\n" .
-            TextFormat::AQUA . "З поверненням " . TextFormat::GREEN . "%0" . TextFormat::AQUA . "!" . TextFormat::RED . "\nPlease change to the new format. ATTE:" . TextFormat::BLUE . "iksaku",        //%0 is a player - just to not forget
+        "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
+            TextFormat::YELLOW . "З поверненням " . TextFormat::GREEN . "%0" . " до " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" , //%0 is a player - just to not forget
         "auth" => [
             "login" => [
                 "join" => TextFormat::YELLOW . "Будь ласка, введіть свій пароль в чат для входу...",
@@ -159,7 +158,7 @@ class Languages extends BaseAPI{
                 ]
             ]
         ], "popups" => [
-            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Роз " . TextFormat::GREEN . "ва" . TextFormat::YELLOW . "жа" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
+            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Роз" . TextFormat::GREEN . "ва" . TextFormat::YELLOW . "жа" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
         ], "kick" => [
             "sub" => TextFormat::YELLOW . "Відвідайте наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
             "notlogged" => TextFormat::YELLOW . "Ви були кікнуті тому що Ви '" . TextFormat::RED . "Не ввійшли" . TextFormat::YELLOW . "'!",
@@ -255,15 +254,15 @@ class Languages extends BaseAPI{
         switch(strtolower($language)){
             case "english":
             case "en":
+            case "ukrainian":
+                $language = "ukrainian";
+                break;
             default:
                 $language = "english";
                 break;
             case "spanish":
             case "es":
                 $language =  "spanish";
-                break;
-            case "ukrainian":
-                $language = "ukrainian";
                 break;
         }
         return $this->{$language};
@@ -323,6 +322,9 @@ class Languages extends BaseAPI{
             case "ZA":
             case "ZM":
             case "ZW":
+            case "UK":
+                $l = "ukrainian";
+                break;
             default:
                 $l = "english";
                 break;
@@ -348,9 +350,6 @@ class Languages extends BaseAPI{
             case "UY":
             case "VE":
                 $l = "spanish";
-                break;
-            case "UK":
-                $l = "ukrainian";
                 break;
             // TODO Ukrainian
         }
