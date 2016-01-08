@@ -135,27 +135,27 @@ class Languages extends BaseAPI{
                 "failure" => TextFormat::DARK_GRAY . "Упс, щось пішло не так під час аутентифікації.\n" . TextFormat::DARK_GRAY . "Будь ласка, спробуйте знову...",
                 "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "увійдіть" . TextFormat::GRAY . "\" щоб грати!"
             ], "register" => [
-                "join" => TextFormat::LIGHT_PURPLE . "Схоже що цей аккаунт не зареєстрований,\n Але ви можете зареєструвати його зараз!\n" . TextFormat::AQUA . "Будь ласка, введіть пароль в чат " . TextFormat::YELLOW . "(Ніхто його не побачить)...",
+                "join" => TextFormat::LIGHT_PURPLE . "Схоже що цей аккаунт не зареєстрований,\n Але Ви можете зареєструвати його зараз!\n" . TextFormat::AQUA . "Будь ласка, введіть пароль в чат " . TextFormat::YELLOW . "(Ніхто його не побачить)...",
                 "successful" => TextFormat::GRAY . "Ви успішно зареєструвалися!",
                 "failure" => TextFormat::DARK_GRAY . "Упс, щось пішо не так під час реєстрації.\n" . TextFormat::DARK_GRAY . "Будь ласка, не забувайте що кожний E-MAIL повинен бути унікальним.\n" . TextFormat::DARK_GRAY . "Будь ласка спробуйте знову...",
                 "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "Зареєструйтеся" . TextFormat::GRAY . "\" щоб грати!",
                 // The following section is for "registration steps" :3
                 "steps" => [
-                    TextFormat::AQUA . "Please type a password in chat " . TextFormat::YELLOW . "(Nobody will see it)...", // Step 0
-                    TextFormat::YELLOW . "Please confirm your new password...", // Step 1
-                    TextFormat::YELLOW . "Please enter your e-mail address...", // Step 2
-                    TextFormat::YELLOW . "Please confirm your e-mail address...", // Step 3
+                    TextFormat::AQUA . "Будь ласка введіть пароль в чат " . TextFormat::YELLOW . "(Ніхто його не побачить)...", // Step 0
+                    TextFormat::YELLOW . "Будь ласка, пітдвердіть Ваш новий пароль ...", // Step 1
+                    TextFormat::YELLOW . "Будь ласка введіть Вашу e-mail адресу...", // Step 2
+                    TextFormat::YELLOW . "Будь ласка, пітдвердіть Вашу e-mail адресу...", // Step 3
                 ],
                 "password" => [
-                    "confirm" => TextFormat::GREEN . "Very well! " . TextFormat::YELLOW . "Please confirm your new password...",
-                    "invalid" => TextFormat::RED . "You have entered an invalid password!\n" . TextFormat::AQUA . "Please consider the following rule:\n" . TextFormat::YELLOW . "\t- No spaces\n" . TextFormat::AQUA . "Please type another password...",
-                    "match" => TextFormat::RED . "No! " . TextFormat::YELLOW . "The passwords doesn't match! Let's start again...\n" . TextFormat::AQUA . "Please type a password...",
-                    "success" => TextFormat::GREEN . "Awesome! " . TextFormat::YELLOW . "Now please enter your e-mail address..."
+                    "confirm" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Ваш новий пароль...",
+                    "invalid" => TextFormat::RED . "Ви ввели недійсний пароль!\n" . TextFormat::AQUA . "Будь ласка, врахуйте настпне правило:\n" . TextFormat::YELLOW . "\t- Без пробілів\n" . TextFormat::AQUA . "Будь ласка, введіть інший пароль...",
+                    "match" => TextFormat::RED . "Привіт! " . TextFormat::YELLOW . "Паролі не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть пароль...",
+                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Тепер введіть Вашу e-mail адресу..."
                 ], "email" => [
-                    "confirm" => TextFormat::GREEN . "Good job! " . TextFormat::YELLOW . "Please confirm your e-mail address...",
-                    "invalid" => TextFormat::RED . "Wrong! " . TextFormat::YELLOW . "This e-mail address is invalid!\n" . TextFormat::AQUA . "Please type a valid e-mail...",
-                    "match" => TextFormat::RED . "What?! " . TextFormat::YELLOW . "The e-mails doesn't match! Let's try again...\n" . TextFormat::AQUA . "Please type your e-mail...",
-                    "success" => TextFormat::GREEN . "Excellent! " . TextFormat::YELLOW . "Please wait a moment while we create your account..."
+                    "confirm" => TextFormat::GREEN . "Гарна робота! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Вашу e-mail адресу...",
+                    "invalid" => TextFormat::RED . "Неправильно! " . TextFormat::YELLOW . "Ця e-mail адреса недійсна!\n" . TextFormat::AQUA . "Будь ласка, введіть дійсну e-mail адресу...",
+                    "match" => TextFormat::RED . "Що?! " . TextFormat::YELLOW . "E-mail адреса не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть Вашу e-mail адресу...",
+                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, зачекайте хвильку доки ми створюємо ваш акаунт..."
                 ]
             ]
         ], "popups" => [
@@ -171,12 +171,12 @@ class Languages extends BaseAPI{
             "start" => TextFormat::YELLOW . "The game starts in " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
             "timer" => TextFormat::GREEN . "Time left: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
             "time" => [
-                "second" => "second",
-                "seconds" => "seconds",
-                "minute" => "minute",
-                "minutes" => "minutes",
-                "hour" => "hour",
-                "hours" => "hours"
+                "second" => "секунда",
+                "seconds" => "секунд",
+                "minute" => "хвилина",
+                "minutes" => "хвилин",
+                "hour" => "година",
+                "hours" => "годин"
             ]
         ]
     ];
