@@ -159,17 +159,17 @@ class Languages extends BaseAPI{
                 ]
             ]
         ], "popups" => [
-            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Have " . TextFormat::GREEN . "Fun" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
+            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Роз " . TextFormat::GREEN . "ва" . TextFormat::YELLOW . "жа" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
         ], "kick" => [
-            "sub" => TextFormat::YELLOW . "Be sure to visit us at:\n" . TextFormat::ITALIC . TextFormat::AQUA . "MinePocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
-            "notlogged" => TextFormat::YELLOW . "You were kicked because you '" . TextFormat::RED . "Didn't logged in" . TextFormat::YELLOW . "'!",
-            "loggedin" => TextFormat::YELLOW . "You were kicked because a player with the same " . TextFormat::ITALIC . "username" . TextFormat::RED . TextFormat::YELLOW . " is already logged in.",
-            "advertising" => TextFormat::YELLOW . "You were kicked for '" . TextFormat::RED . "Advertising" . TextFormat::YELLOW . "'!",
-            "swear" => TextFormat::YELLOW . "You were kicked for '" . TextFormat::RED . "Swearing" . TextFormat::YELLOW . "'!",
-            "banned" => TextFormat::YELLOW . "You where kicked because you're '" . TextFormat::RESET . "Banned" . TextFormat::YELLOW . "'!"
+            "sub" => TextFormat::YELLOW . "Відвідайте наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+            "notlogged" => TextFormat::YELLOW . "Ви були кікнуті тому що Ви '" . TextFormat::RED . "Не ввійшли" . TextFormat::YELLOW . "'!",
+            "loggedin" => TextFormat::YELLOW . "Ви були кікнуті тому що гравець з таким само " . TextFormat::ITALIC . "нікнеймом" . TextFormat::RED . TextFormat::YELLOW . " вже ввійшов.",
+            "advertising" => TextFormat::YELLOW . "Ви були кікнуті через '" . TextFormat::RED . "Рекламування" . TextFormat::YELLOW . "'!",
+            "swear" => TextFormat::YELLOW . "Ви були за вживання '" . TextFormat::RED . "Нецензурних слів" . TextFormat::YELLOW . "'!",
+            "banned" => TextFormat::YELLOW . "Ви були кікнуті тому що ви '" . TextFormat::RESET . "заблоковані" . TextFormat::YELLOW . "'!"
         ], "games" => [
-            "start" => TextFormat::YELLOW . "The game starts in " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
-            "timer" => TextFormat::GREEN . "Time left: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
+            "start" => TextFormat::YELLOW . "Гра починається через " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
+            "timer" => TextFormat::GREEN . "Залишилося часу: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
             "time" => [
                 "second" => "секунда",
                 "seconds" => "секунд",
