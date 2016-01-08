@@ -254,8 +254,6 @@ class Languages extends BaseAPI{
         switch(strtolower($language)){
             case "english":
             case "en":
-            case "ukrainian":
-                $language = "ukrainian";
                 break;
             default:
                 $language = "english";
@@ -264,6 +262,8 @@ class Languages extends BaseAPI{
             case "es":
                 $language =  "spanish";
                 break;
+            case "ukrainian":
+                $language = "ukrainian";
         }
         return $this->{$language};
     }
@@ -322,8 +322,6 @@ class Languages extends BaseAPI{
             case "ZA":
             case "ZM":
             case "ZW":
-            case "UK":
-                $l = "ukrainian";
                 break;
             default:
                 $l = "english";
@@ -351,7 +349,8 @@ class Languages extends BaseAPI{
             case "VE":
                 $l = "spanish";
                 break;
-            // TODO Ukrainian
+            case "UK":
+                $l = "ukrainian";
         }
         $player->setLanguage($l);
     }
