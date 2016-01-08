@@ -954,13 +954,13 @@ class SuperPlayer extends Player{
 
         // TODO: Display disguise for client
         /*if(isset($pk)){
-            #$pk->eid = 0;
+            $pk->eid = 0;
             $this->dataPacket($pk);
-            #$pk->eid = $this->getId();
-        }
+            $pk->eid = $this->getId();
+        }*/ //Dont know why we need this if statement, it works more or less good like that too
         $this->dataPacket($pk2);
         $this->dataPacket($pk3);
-        $this->dataPacket($pk4);*/
+        $this->dataPacket($pk4);
         foreach($this->getViewers() as $p){
             if($p->isOnline() && $p->canSee($this)){
                 if(isset($pk)){
