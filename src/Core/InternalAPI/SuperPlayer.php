@@ -668,6 +668,10 @@ class SuperPlayer extends Player{
         return isset($this->disguiseDataProperties[$id]) ? $this->disguiseDataProperties[$id][1] : null;
     }
 
+    public function getDisguiseDataProperties(){
+        return isset($this->disguiseDataProperties) ? $this->disguiseDataProperties : null;
+    }
+
     /**
      * @param int $id
      * @param int $type

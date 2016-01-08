@@ -31,6 +31,8 @@ use pocketmine\network\protocol\AddEntityPacket;
 use pocketmine\network\protocol\AddPlayerPacket;
 use pocketmine\network\protocol\MoveEntityPacket;
 use pocketmine\network\protocol\MovePlayerPacket;
+use pocketmine\network\protocol\SetEntityDataPacket;
+use pocketmine\network\protocol\SetEntityMotionPacket;
 use pocketmine\network\protocol\RemoveEntityPacket;
 use pocketmine\network\protocol\RemovePlayerPacket;
 
@@ -77,6 +79,7 @@ class EventHandler implements Listener{
             ($disguised = $this->plugin->isDisguised($eid)) !== false /*&&
             $event->getPlayer()->getId() !== $disguised->getId()*/
         ){
+            //TODO: FIX ISSUES WITH DISSAPEARING DISGUISED ENTITIES
             if($packet instanceof MovePlayerPacket){
                 $pk = new CustomMoveEntityPacket();
                 $pk->entities = [$disguised->getId() => [$disguised->getId(), $packet->x, $packet->y, $packet->z, $packet->yaw, $packet->pitch]];
