@@ -2,37 +2,31 @@
 namespace Core\InternalAPI;
 
 use Core\BaseFiles\BaseAPI;
+use Core\Loader;
 
 class Ranks extends BaseAPI{
-    /** @var array */
-    private $guest = [
-        "prefix" => "[Guest]"
-    ];
-    /** @var array */
-    private $builder = [
-        "inheritance" => "guest",
-        "prefix" => "[Builder]"
-    ];
-    /** @var array */
-    private $dev = [
-        "inheritance" => "builder",
-        "prefix" => "[Dev]"
-    ];
-    /** @var array */
-    private $mod = [
-        "inheritance" => "dev",
-        "prefix" => "[Mod]"
-    ];
-    /** @var array */
-    private $admin = [
-        "inheritance" => "mod",
-        "prefix" => "[Admin]"
-    ];
-    /** @var array */
-    private $owner = [
-        "inheritance" => "admin",
-        "prefix" => "[Owner]"
-    ];
+    const ADMIN = 0;
+    const MODERATOR = 1;
+    const STAFF = 2;
+    const GUEST = 3;
+    private static $list;
+
+    public function __construct(Loader $core){
+        parent::__construct($core);
+
+        $c = new \ReflectionClass($this);
+        foreach($c->getConstants() as $k => $v){
+            self::$list[$v] = ucfirst(strtolower($k));
+        }
+    }
+
+    /**
+     * @param int $rank
+     * @return string
+     */
+    public static function identifyRank($rank){
+        return isset(self::$list[$rank]) ? self::$list[$rank] : "Guest";
+    }
 
     /**
      * @param SuperPlayer $player
