@@ -680,6 +680,7 @@ class SuperPlayer extends Player{
      * @param SuperPlayer[] $targets
      */
     public function setDisguiseDataProperty($id, $type, $value, $send = true, $targets = []){
+        var_dump($value);
         if($this->getDisguiseDataProperty($id) !== $value){
             $this->disguiseDataProperties[$id] = [$type, $value];
 
@@ -710,7 +711,8 @@ class SuperPlayer extends Player{
                 if(!isset($nbt->Data)){
                     $nbt["Data"] = new Int("Data", 0);
                 }
-                $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"] | ($nbt["Data"] << 8), $send);
+                var_dump(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"], $nbt["Data"]);
+                $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"]->getValue() | ($nbt["Data"]->getValue() << 8), $send);
                 break;
             default: // Living entities
                 if(isset($nbt->Name) && !isset($nbt->CustomName)){
@@ -949,9 +951,8 @@ class SuperPlayer extends Player{
         $pk3 = new SetEntityMotionPacket();
         $pk3->entities = [[$this->getId(), $this->motionX, $this->motionY, $this->motionZ]];
 
-        if($nbt !== null){
-            $this->parseDisguiseNBT($entity, $nbt, false);
-        }
+        $this->parseDisguiseNBT($entity, $nbt, false);
+
         $pk4 = new SetEntityDataPacket();
         $pk4->eid = $this->getId();
         $pk4->metadata = $this->disguiseDataProperties;
