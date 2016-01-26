@@ -710,19 +710,25 @@ class SuperPlayer extends Player{
                 if(!isset($nbt->Data)){
                     $nbt["Data"] = new Int("Data", 0);
                 }
+                if(!isset($nbt->NoFall)){
+                    $nbt["NoFall"] = new Int("NoFall", 1);
+                }
+                //$this->setDataProperty(self::DATA_NO_AI, self::DATA_TYPE_INT, 0);
                 $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"]->getValue() | ($nbt["Data"]->getValue() << 8), $send);
+                //$ActualEntity = $this->getLevel()->getEntity($this->getDisguiseID());
+                //$this->setDisguiseDataProperty(self::DATA_NO_AI, self::DATA_TYPE_BYTE, 1);
                 break;
             default: // Living entities
                 if(isset($nbt->Name) && !isset($nbt->CustomName)){
-                    $nbt["CustomName"] = new String("CustomName", $nbt["Name"]);
+                    $nbt["CustomName"] = new String("CustomName", $nbt["Name"]->getValue());
                 }elseif(!isset($nbt->Name) && !isset($nbt->CustomName)){
                     $nbt["CustomName"] = new String("CustomName", "Disguise");
                 }
-                $this->setDisguiseDataProperty(self::DISGUISE_DATA_LIVINGENTITY_NAME, self::DATA_TYPE_STRING, (string) $nbt["CustomName"], $send);
+                $this->setDisguiseDataProperty(self::DISGUISE_DATA_LIVINGENTITY_NAME, self::DATA_TYPE_STRING, (string) $nbt["CustomName"]->getValue(), $send);
                 if(!isset($nbt->CustomNameVisible)){
                     $nbt["CustomNameVisible"] = new Byte("CustomNameVisible", 0);
                 }
-                $this->setDisguiseDataProperty(self::DISGUISE_DATA_LIVINGENTITY_SHOW_NAMETAG, self::DATA_TYPE_BYTE, (int) $nbt["CustomNameVisible"], $send);
+                $this->setDisguiseDataProperty(self::DISGUISE_DATA_LIVINGENTITY_SHOW_NAMETAG, self::DATA_TYPE_BYTE, (int) $nbt["CustomNameVisible"]->getValue(), $send);
                 switch($entity){
                     case self::DISGUISE_ENTITY_COW:
                     case self::DISGUISE_ENTITY_CHICKEN;
@@ -744,68 +750,68 @@ class SuperPlayer extends Player{
                         if(!isset($nbt->Hanging)){
                             $nbt["Hanging"] = new Byte("Hanging", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_BAT_HANGING, self::DATA_TYPE_BYTE, (int) $nbt["Hanging"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_BAT_HANGING, self::DATA_TYPE_BYTE, (int) $nbt["Hanging"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_BLAZE:
                         if(!isset($nbt->OnFire)){
                             $nbt["OnFire"] = new Byte("OnFire", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_BLAZE_ON_FIRE, self::DATA_TYPE_BYTE, (int) $nbt["OnFire"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_BLAZE_ON_FIRE, self::DATA_TYPE_BYTE, (int) $nbt["OnFire"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_CREEPER:
                         if(!isset($nbt->State)){
                             $nbt["State"] = new Byte("State", self::DISGUISE_DATA_CREEPER_STATE_IDLE);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_CREEPER_STATE, self::DATA_TYPE_BYTE, (int) $nbt["State"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_CREEPER_STATE, self::DATA_TYPE_BYTE, (int) $nbt["State"]->getValue(), $send);
                         if(!isset($nbt->Powered)){
                             $nbt["Powered"] = new Byte("Powered", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_CREEPER_IS_POWERED, self::DATA_TYPE_BYTE, (int) $nbt["Powered"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_CREEPER_IS_POWERED, self::DATA_TYPE_BYTE, (int) $nbt["Powered"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_ENDERMAN:
                         if(!isset($nbt->CarriedBlock)){
                             $nbt["CarriedBlock"] = new Short("CarriedBlock", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_ENDERMAN_CARRIED_BLOCK_ID, self::DATA_TYPE_SHORT, (int) $nbt["CarriedBlock"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_ENDERMAN_CARRIED_BLOCK_ID, self::DATA_TYPE_SHORT, (int) $nbt["CarriedBlock"]->getValue(), $send);
 
                         // TODO: CarriedBlockData
 
                         if(!isset($nbt->Screaming)){
                             $nbt["Screaming"] = new Byte("Screaming", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_ENDERMAN_SCREAMING, self::DATA_TYPE_BYTE, (int) $nbt["Screaming"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_ENDERMAN_SCREAMING, self::DATA_TYPE_BYTE, (int) $nbt["Screaming"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_IRON_GOLEM:
                         if(!isset($nbt->PlayerCreated)){
                             $nbt["PlayerCreated"] = new Byte("PlayerCreated", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_IRONGOLEM_PLAYER_CREATED, self::DATA_TYPE_BYTE, (int) $nbt["PlayerCreated"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_IRONGOLEM_PLAYER_CREATED, self::DATA_TYPE_BYTE, (int) $nbt["PlayerCreated"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_SKELETON:
                         if(!isset($nbt->Type)){
                             $nbt["Type"] = new Byte("Type", self::DISGUISE_DATA_SKELETON_TYPE_NORMAL);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_SKELETON_TYPE, self::DATA_TYPE_BYTE, (int) $nbt["Type"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_SKELETON_TYPE, self::DATA_TYPE_BYTE, (int) $nbt["Type"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_SLIME:
                     case self::DISGUISE_ENTITY_MAGMA:
                         if(!isset($nbt->Size)){
                             $nbt["Size"] = new Byte("Size", 16);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_SLIME_SIZE, self::DATA_TYPE_BYTE, (int) $nbt["Size"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_SLIME_SIZE, self::DATA_TYPE_BYTE, (int) $nbt["Size"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_SPIDER:
                     case self::DISGUISE_ENTITY_CAVE_SPIDER:
                         if(!isset($nbt->Climbing)){
                             $nbt["Climbing"] = new Byte("Climbing", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_SPIDER_CLIMBING, self::DATA_TYPE_BYTE, (int) $nbt["Climbing"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_SPIDER_CLIMBING, self::DATA_TYPE_BYTE, (int) $nbt["Climbing"]->getValue(), $send);
                         break;
                     case self::DISGUISE_ENTITY_GHAST:
                         if(!isset($nbt->Attacking)){
                             $nbt["Attacking"] = new Byte("Attacking", 0);
                         }
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_GHAST_ATTACKING, self::DATA_TYPE_BYTE, (int) $nbt["Attacking"], $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_GHAST_ATTACKING, self::DATA_TYPE_BYTE, (int) $nbt["Attacking"]->getValue(), $send);
                         break;
                     default: // Ageable entities
                         if(!isset($nbt->Child)){
@@ -818,70 +824,70 @@ class SuperPlayer extends Player{
                          *  '$nbt["Child"] = true'  === is Child
                          * Just, don't try to fit the below line of code....
                          */
-                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_AGEABLE_AGE, self::DATA_TYPE_BYTE, ((bool) $nbt["Child"] ? -1 : 1), $send);
+                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_AGEABLE_AGE, self::DATA_TYPE_BYTE, ((bool) $nbt["Child"]->getValue() ? -1 : 1), $send);
                         switch($entity){
                             case self::DISGUISE_ENTITY_PIG:
                                 if(!isset($nbt->Saddled)){
                                     $nbt["Saddled"] = new Byte("Saddled", 0);
                                 }
-                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_PIG_SADDLE, self::DATA_TYPE_BYTE, (int) $nbt["Saddled"], $send);
+                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_PIG_SADDLE, self::DATA_TYPE_BYTE, (int) $nbt["Saddled"]->getValue(), $send);
                                 break;
                             case self::DISGUISE_ENTITY_SHEEP:
                                 if(!isset($nbt->Color)){
                                     $nbt["Color"] = new Byte("Color", self::DISGUISE_DATA_ENTITY_DYE_COLOR_WHITE);
                                 }
-                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_SHEEP_FLAG, self::DISGUISE_DATA_SHEEP_FLAG_COLOR, self::DATA_TYPE_BYTE, (int) $nbt["Color"], $send);
+                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_SHEEP_FLAG, self::DISGUISE_DATA_SHEEP_FLAG_COLOR, self::DATA_TYPE_BYTE, (int) $nbt["Color"]->getValue(), $send);
                                 if(!isset($nbt->Sheared)){
                                     $nbt["Sheared"] = new Byte("Sheared", 0);
                                 }
-                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_SHEEP_FLAG, self::DISGUISE_DATA_SHEEP_FLAG_SHEARED, self::DATA_TYPE_BYTE, (int) $nbt["Sheared"], $send);
+                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_SHEEP_FLAG, self::DISGUISE_DATA_SHEEP_FLAG_SHEARED, self::DATA_TYPE_BYTE, (int) $nbt["Sheared"]->getValue(), $send);
                                 break;
                             case self::DISGUISE_ENTITY_VILLAGER:
                                 if(!isset($nbt->Profession)){
                                     $nbt["Profession"] = new Int("Profession", self::DISGUISE_DATA_VILLAGER_FARMER);
                                 }
-                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_VILLAGER, self::DATA_TYPE_INT, (int) $nbt["Profession"], $send);
+                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_VILLAGER, self::DATA_TYPE_INT, (int) $nbt["Profession"]->getValue(), $send);
                                 break;
                             case self::DISGUISE_ENTITY_ZOMBIE:
                             case self::DISGUISE_ENTITY_PIGMAN:
                                 if(!isset($nbt->Villager)){
                                     $nbt["Villager"] = new Byte("Villager", 0);
                                 }
-                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_ZOMBIE_IS_VILLAGER, self::DATA_TYPE_BYTE, (int) $nbt["Villager"], $send);
+                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_ZOMBIE_IS_VILLAGER, self::DATA_TYPE_BYTE, (int) $nbt["Villager"]->getValue(), $send);
                                 if(!isset($nbt->Converting)){
                                     $nbt["Converting"] = new Byte("Converting", 0);
                                 }
-                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_ZOMBIE_IS_CONVERTING, self::DATA_TYPE_BYTE, (int) $nbt["Converting"], $send);
+                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_ZOMBIE_IS_CONVERTING, self::DATA_TYPE_BYTE, (int) $nbt["Converting"]->getValue(), $send);
                                 break;
                             default: // Tameable entities
                                 if(!isset($nbt->Sitting)){
                                     $nbt["Sitting"] = new Byte("Sitting", 0);
                                 }
-                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_TAMEABLE_FLAG, self::DISGUISE_DATA_TAMEABLE_FLAG_SITTING, self::DATA_TYPE_BYTE, (int) $nbt["Sitting"], $send);
+                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_TAMEABLE_FLAG, self::DISGUISE_DATA_TAMEABLE_FLAG_SITTING, self::DATA_TYPE_BYTE, (int) $nbt["Sitting"]->getValue(), $send);
                                 if(!isset($nbt->Tamed)){
                                     $nbt["Tamed"] = new Byte("Tamed", (int) isset($nbt->Owner));
                                 }
-                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_TAMEABLE_FLAG, self::DISGUISE_DATA_TAMEABLE_FLAG_TAMED, self::DATA_TYPE_BYTE, (int) $nbt["Tamed"], $send);
+                                $this->setDisguiseDataFlag(self::DISGUISE_DATA_TAMEABLE_FLAG, self::DISGUISE_DATA_TAMEABLE_FLAG_TAMED, self::DATA_TYPE_BYTE, (int) $nbt["Tamed"]->getValue(), $send);
                                 if(!isset($nbt->Owner)){
                                     $nbt["Owner"] = new String("Owner", "");
                                 }
-                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_TAMEABLE_OWNER, self::DATA_TYPE_STRING, (string) $nbt["Owner"], $send);
+                                $this->setDisguiseDataProperty(self::DISGUISE_DATA_TAMEABLE_OWNER, self::DATA_TYPE_STRING, (string) $nbt["Owner"]->getValue(), $send);
                                 switch($entity){
                                     case self::DISGUISE_ENTITY_OCELOT:
                                         if(!isset($nbt->Type)){
                                             $nbt["Type"] = new Byte("Type", 0);
                                         }
-                                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_OCELOT_TYPE, self::DATA_TYPE_BYTE, (int) $nbt["Type"], $send);
+                                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_OCELOT_TYPE, self::DATA_TYPE_BYTE, (int) $nbt["Type"]->getValue(), $send);
                                         break;
                                     case self::DISGUISE_ENTITY_WOLF:
                                         if(!isset($nbt->Angry)){
                                             $nbt["Angry"] = new Byte("Angry", 0);
                                         }
-                                        $this->setDisguiseDataFlag(self::DISGUISE_DATA_TAMEABLE_FLAG, self::DISGUISE_DATA_WOLF_FLAG_ANGRY, self::DATA_TYPE_BYTE, (int) $nbt["Angry"], $send);
+                                        $this->setDisguiseDataFlag(self::DISGUISE_DATA_TAMEABLE_FLAG, self::DISGUISE_DATA_WOLF_FLAG_ANGRY, self::DATA_TYPE_BYTE, (int) $nbt["Angry"]->getValue(), $send);
                                         if(!isset($nbt->Collar)){
                                             $nbt["Collar"] = new Byte("Collar", self::DISGUISE_DATA_ENTITY_DYE_COLOR_RED);
                                         }
-                                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_WOLF_COLLAR, self::DATA_TYPE_BYTE, (int) $nbt["Collar"], $send);
+                                        $this->setDisguiseDataProperty(self::DISGUISE_DATA_WOLF_COLLAR, self::DATA_TYPE_BYTE, (int) $nbt["Collar"]->getValue(), $send);
                                         break;
                                 }
                                 break;

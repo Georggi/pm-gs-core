@@ -9,6 +9,7 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\SignChangeEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityLevelChangeEvent;
+use pocketmine\event\entity\FallingSandFallEvent;
 use pocketmine\event\inventory\InventoryOpenEvent;
 use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\event\Listener;
@@ -47,6 +48,11 @@ class EventHandler implements Listener{
         $this->plugin = $plugin;
     }
 
+    public function onFallingSandFall(FallingSandFallEvent $event){
+        //if($event->getEntity()->getDataPropertyType("NoFall") === 1){
+            $event->setCancelled();
+       //}
+    }
     /**
      * @param QueryRegenerateEvent $event
      *
