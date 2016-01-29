@@ -9,7 +9,7 @@ class Languages extends BaseAPI{
     /** @var array */
     private /** @noinspection PhpUnusedPrivateFieldInspection */
         $english = [
-        "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
+        "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" . //NO TRANSLATION OF LEFT AND RIGHT
             TextFormat::YELLOW . "Welcome " . TextFormat::GREEN . "%0" . " to " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
             TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/",
         "auth" => [
@@ -132,17 +132,17 @@ class Languages extends BaseAPI{
                 "join" => TextFormat::YELLOW . "Будь ласка, введіть свій пароль в чат для входу...",
                 "successful" => TextFormat::GREEN . "Ви успішно ввійшли!",
                 "failure" => TextFormat::DARK_GRAY . "Упс, щось пішло не так під час аутентифікації.\n" . TextFormat::DARK_GRAY . "Будь ласка, спробуйте знову...",
-                "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "увійдіть" . TextFormat::GRAY . "\" щоб грати!"
+                "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "увійдіть," . TextFormat::GRAY . "\" щоб грати!"
             ], "register" => [
                 "join" => TextFormat::LIGHT_PURPLE . "Схоже що цей аккаунт не зареєстрований,\n Але Ви можете зареєструвати його зараз!\n" . TextFormat::AQUA . "Будь ласка, введіть пароль в чат " . TextFormat::YELLOW . "(Ніхто його не побачить)...",
                 "successful" => TextFormat::GRAY . "Ви успішно зареєструвалися!",
-                "failure" => TextFormat::DARK_GRAY . "Упс, щось пішо не так під час реєстрації.\n" . TextFormat::DARK_GRAY . "Будь ласка, не забувайте що кожний E-MAIL повинен бути унікальним.\n" . TextFormat::DARK_GRAY . "Будь ласка спробуйте знову...",
-                "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "Зареєструйтеся" . TextFormat::GRAY . "\" щоб грати!",
+                "failure" => TextFormat::DARK_GRAY . "Упс, щось пішо не так під час реєстрації.\n" . TextFormat::DARK_GRAY . "Будь ласка, не забувайте, що кожний E-MAIL повинен бути унікальним.\n" . TextFormat::DARK_GRAY . "Будь ласка, спробуйте знову...",
+                "popup" => TextFormat::GRAY . "Будь ласка, \"" . TextFormat::AQUA . "зареєструйтеся," . TextFormat::GRAY . "\" щоб грати!",
                 // The following section is for "registration steps" :3
                 "steps" => [
-                    TextFormat::AQUA . "Будь ласка введіть пароль в чат " . TextFormat::YELLOW . "(Ніхто його не побачить)...", // Step 0
-                    TextFormat::YELLOW . "Будь ласка, пітдвердіть Ваш новий пароль ...", // Step 1
-                    TextFormat::YELLOW . "Будь ласка введіть Вашу e-mail адресу...", // Step 2
+                    TextFormat::AQUA . "Будь ласка, введіть пароль в чат " . TextFormat::YELLOW . "(Ніхто його не побачить)...", // Step 0
+                    TextFormat::YELLOW . "Будь ласка, пітдвердіть Ваш новий пароль...", // Step 1
+                    TextFormat::YELLOW . "Будь ласка, введіть Вашу e-mail адресу...", // Step 2
                     TextFormat::YELLOW . "Будь ласка, пітдвердіть Вашу e-mail адресу...", // Step 3
                 ],
                 "password" => [
@@ -176,6 +176,64 @@ class Languages extends BaseAPI{
                 "minutes" => "хвилин",
                 "hour" => "година",
                 "hours" => "годин"
+            ]
+        ]
+    ];
+    /** @var array */
+    private /** @noinspection PhpUnusedPrivateFieldInspection */
+        $russian = [
+        "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
+            TextFormat::YELLOW . "С возвращением " . TextFormat::GREEN . "%0" . " на " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" , //%0 is a player - just to not forget
+        "auth" => [
+            "login" => [
+                "join" => TextFormat::YELLOW . "Пожалуйста, введите свой пароль в чат для входа...",
+                "successful" => TextFormat::GREEN . "Вы успешно вошли!",
+                "failure" => TextFormat::DARK_GRAY . "Упс, что то пошло не так во время аутентификации.\n" . TextFormat::DARK_GRAY . "Пожалуйста, попробуйте заново...",
+                "popup" => TextFormat::GRAY . "Пожалуйста, \"" . TextFormat::AQUA . "войдите," . TextFormat::GRAY . "\" что бы играть!"
+            ], "register" => [
+                "join" => TextFormat::LIGHT_PURPLE . "Похоже, что этот аккаунт не зарегистрирован,\n Но Вы можете сделать это прямо сейчас!\n" . TextFormat::AQUA . "Пожалуйста, введите пароль в чат " . TextFormat::YELLOW . "(Никто его не увидит)...",
+                "successful" => TextFormat::GRAY . "Вы успешно зарегистрировались!",
+                "failure" => TextFormat::DARK_GRAY . "Упс, что то пошло не так во время регистрации.\n" . TextFormat::DARK_GRAY . "Пожалуйста, не забывайте, что каждый E-MAIL должен быть уникален.\n" . TextFormat::DARK_GRAY . "Пожалуйста, попробуйте снова...",
+                "popup" => TextFormat::GRAY . "Пожалуйста, \"" . TextFormat::AQUA . "зарегистрируйтесь" . TextFormat::GRAY . "\" чтобы играть!",
+                // The following section is for "registration steps" :3
+                "steps" => [
+                    TextFormat::AQUA . "Пожалуйста, введите Ваш пароль в чат " . TextFormat::YELLOW . "(Никто его не увидит)...", // Step 0
+                    TextFormat::YELLOW . "Пожалуйста, подтвердите Ваш пароль...", // Step 1
+                    TextFormat::YELLOW . "Пожалуйста, введите Ваш e-mail адрес...", // Step 2
+                    TextFormat::YELLOW . "Пожалуйста, подтвердите Ваш e-mail адрес...", // Step 3
+                ],
+                "password" => [
+                    "confirm" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Ваш новий пароль...",
+                    "invalid" => TextFormat::RED . "Ви ввели недійсний пароль!\n" . TextFormat::AQUA . "Будь ласка, врахуйте настпне правило:\n" . TextFormat::YELLOW . "\t- Без пробілів\n" . TextFormat::AQUA . "Будь ласка, введіть інший пароль...",
+                    "match" => TextFormat::RED . "Привіт! " . TextFormat::YELLOW . "Паролі не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть пароль...",
+                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Тепер введіть Вашу e-mail адресу..."
+                ], "email" => [
+                    "confirm" => TextFormat::GREEN . "Гарна робота! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Вашу e-mail адресу...",
+                    "invalid" => TextFormat::RED . "Неправильно! " . TextFormat::YELLOW . "Ця e-mail адреса недійсна!\n" . TextFormat::AQUA . "Будь ласка, введіть дійсну e-mail адресу...",
+                    "match" => TextFormat::RED . "Що?! " . TextFormat::YELLOW . "E-mail адреса не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть Вашу e-mail адресу...",
+                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, зачекайте хвильку доки ми створюємо ваш акаунт..."
+                ]
+            ]
+        ], "popups" => [
+            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Роз" . TextFormat::GREEN . "ва" . TextFormat::YELLOW . "жа" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
+        ], "kick" => [
+            "sub" => TextFormat::YELLOW . "Відвідайте наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+            "notlogged" => TextFormat::YELLOW . "Ви були кікнуті тому що Ви '" . TextFormat::RED . "Не ввійшли" . TextFormat::YELLOW . "'!",
+            "loggedin" => TextFormat::YELLOW . "Ви були кікнуті тому що гравець з таким само " . TextFormat::ITALIC . "нікнеймом" . TextFormat::RED . TextFormat::YELLOW . " вже ввійшов.",
+            "advertising" => TextFormat::YELLOW . "Ви були кікнуті через '" . TextFormat::RED . "Рекламування" . TextFormat::YELLOW . "'!",
+            "swear" => TextFormat::YELLOW . "Ви були за вживання '" . TextFormat::RED . "Нецензурних слів" . TextFormat::YELLOW . "'!",
+            "banned" => TextFormat::YELLOW . "Ви були кікнуті тому що ви '" . TextFormat::RESET . "заблоковані" . TextFormat::YELLOW . "'!"
+        ], "games" => [
+            "start" => TextFormat::YELLOW . "Гра починається через " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
+            "timer" => TextFormat::GREEN . "Залишилося часу: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
+            "time" => [
+                "second" => "секунда",
+                "seconds" => "секунд",
+                "minute" => "минута",
+                "minutes" => "минут",
+                "hour" => "час",
+                "hours" => "часов"
             ]
         ]
     ];
@@ -265,6 +323,9 @@ class Languages extends BaseAPI{
             case "ua":
                 $language = "ukrainian";
                 break;
+            case "ru":
+                $language = "russian";
+                break;
         }
         return $this->{$language};
     }
@@ -351,6 +412,9 @@ class Languages extends BaseAPI{
                 break;
             case "UA":
                 $l = "ukrainian";
+                break;
+            case "RU":
+                $l = "russian"; //Going to apply it to multiple countries, a lot of post-soviet countries have russian as their main\secondary language
                 break;
         }
         $player->setLanguage($l);
