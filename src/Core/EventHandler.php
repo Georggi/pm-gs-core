@@ -93,7 +93,11 @@ class EventHandler implements Listener{
                 $pk = new CustomMoveEntityPacket();
                 $pk->entities = $packet->entities;
                 foreach($pk->entities as $id => $values){
-                    $values[2] = $disguised->getY();
+                    if($disguised->getDisguiseID() == $disguised::DISGUISE_ENTITY_FALLING_BLOCK){
+                        $values[2] = $disguised->getY() + 0.5;//To make sure FallingSand doesn't go underground
+                    } else {
+                        $values[2] = $disguised->getY();
+                    }
                     $pk->entities[$eid] = $values;
                 }
             }elseif($packet instanceof AddPlayerPacket){

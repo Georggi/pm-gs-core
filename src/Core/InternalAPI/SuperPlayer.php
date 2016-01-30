@@ -946,7 +946,11 @@ class SuperPlayer extends Player{
         $pk2->eid = $this->getId();
         $pk2->type = $entity;
         $pk2->x = $this->getX();
-        $pk2->y = $this->getY();
+        if($entity == self::DISGUISE_ENTITY_FALLING_BLOCK){
+            $pk2->y = $this->getY() + 0.5;//Fix bug with falling send going underground
+        } else {
+            $pk2->y = $this->getY();
+        }
         $pk2->z = $this->getZ();
         $pk2->yaw = $this->getYaw();
         $pk2->pitch = $this->getPitch();
