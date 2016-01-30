@@ -147,25 +147,25 @@ class Languages extends BaseAPI{
                 ],
                 "password" => [
                     "confirm" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Ваш новий пароль...",
-                    "invalid" => TextFormat::RED . "Ви ввели недійсний пароль!\n" . TextFormat::AQUA . "Будь ласка, врахуйте настпне правило:\n" . TextFormat::YELLOW . "\t- Без пробілів\n" . TextFormat::AQUA . "Будь ласка, введіть інший пароль...",
+                    "invalid" => TextFormat::RED . "Ви ввели недійсний пароль!\n" . TextFormat::AQUA . "Будь ласка, врахуйте наступне правило:\n" . TextFormat::YELLOW . "\t- Без пробілів\n" . TextFormat::AQUA . "Будь ласка, введіть інший пароль...",
                     "match" => TextFormat::RED . "Привіт! " . TextFormat::YELLOW . "Паролі не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть пароль...",
                     "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Тепер введіть Вашу e-mail адресу..."
                 ], "email" => [
                     "confirm" => TextFormat::GREEN . "Гарна робота! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Вашу e-mail адресу...",
                     "invalid" => TextFormat::RED . "Неправильно! " . TextFormat::YELLOW . "Ця e-mail адреса недійсна!\n" . TextFormat::AQUA . "Будь ласка, введіть дійсну e-mail адресу...",
                     "match" => TextFormat::RED . "Що?! " . TextFormat::YELLOW . "E-mail адреса не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть Вашу e-mail адресу...",
-                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, зачекайте хвильку доки ми створюємо ваш акаунт..."
+                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, зачекайте хвильку доки ми створюємо Ваш акаунт..."
                 ]
             ]
         ], "popups" => [
             TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Роз" . TextFormat::GREEN . "ва" . TextFormat::YELLOW . "жа" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
         ], "kick" => [
             "sub" => TextFormat::YELLOW . "Відвідайте наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
-            "notlogged" => TextFormat::YELLOW . "Ви були кікнуті тому що Ви '" . TextFormat::RED . "Не ввійшли" . TextFormat::YELLOW . "'!",
-            "loggedin" => TextFormat::YELLOW . "Ви були кікнуті тому що гравець з таким само " . TextFormat::ITALIC . "нікнеймом" . TextFormat::RED . TextFormat::YELLOW . " вже ввійшов.",
+            "notlogged" => TextFormat::YELLOW . "Ви були кікнуті, тому що Ви '" . TextFormat::RED . "Не ввійшли" . TextFormat::YELLOW . "'!",
+            "loggedin" => TextFormat::YELLOW . "Ви були кікнуті, тому що гравець з таким само " . TextFormat::ITALIC . "нікнеймом" . TextFormat::RED . TextFormat::YELLOW . " вже ввійшов.",
             "advertising" => TextFormat::YELLOW . "Ви були кікнуті через '" . TextFormat::RED . "Рекламування" . TextFormat::YELLOW . "'!",
             "swear" => TextFormat::YELLOW . "Ви були за вживання '" . TextFormat::RED . "Нецензурних слів" . TextFormat::YELLOW . "'!",
-            "banned" => TextFormat::YELLOW . "Ви були кікнуті тому що ви '" . TextFormat::RESET . "заблоковані" . TextFormat::YELLOW . "'!"
+            "banned" => TextFormat::YELLOW . "Ви були кікнуті, тому що ви '" . TextFormat::RESET . "заблоковані" . TextFormat::YELLOW . "'!"
         ], "games" => [
             "start" => TextFormat::YELLOW . "Гра починається через " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
             "timer" => TextFormat::GREEN . "Залишилося часу: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
@@ -204,29 +204,29 @@ class Languages extends BaseAPI{
                     TextFormat::YELLOW . "Пожалуйста, подтвердите Ваш e-mail адрес...", // Step 3
                 ],
                 "password" => [
-                    "confirm" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Ваш новий пароль...",
-                    "invalid" => TextFormat::RED . "Ви ввели недійсний пароль!\n" . TextFormat::AQUA . "Будь ласка, врахуйте настпне правило:\n" . TextFormat::YELLOW . "\t- Без пробілів\n" . TextFormat::AQUA . "Будь ласка, введіть інший пароль...",
-                    "match" => TextFormat::RED . "Привіт! " . TextFormat::YELLOW . "Паролі не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть пароль...",
-                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Тепер введіть Вашу e-mail адресу..."
+                    "confirm" => TextFormat::GREEN . "Отлично! " . TextFormat::YELLOW . "Пожалуйста, подтвердите Ваш новый пароль...",
+                    "invalid" => TextFormat::RED . "Вы ввели недействительный пароль!\n" . TextFormat::AQUA . "Пожалуйста, учтите следующее правило:\n" . TextFormat::YELLOW . "\t- Без пробелов\n" . TextFormat::AQUA . "Пожалуйста, введите другой пароль...",
+                    "match" => TextFormat::RED . "Привет! " . TextFormat::YELLOW . "Пароли не совпадают! Давайте начнём сначала...\n" . TextFormat::AQUA . "Пожалуйста, введите пароль...",
+                    "success" => TextFormat::GREEN . "Отлично! " . TextFormat::YELLOW . "Теперь введите Ваш e-mail адрес..."
                 ], "email" => [
-                    "confirm" => TextFormat::GREEN . "Гарна робота! " . TextFormat::YELLOW . "Будь ласка, підтвердіть Вашу e-mail адресу...",
-                    "invalid" => TextFormat::RED . "Неправильно! " . TextFormat::YELLOW . "Ця e-mail адреса недійсна!\n" . TextFormat::AQUA . "Будь ласка, введіть дійсну e-mail адресу...",
-                    "match" => TextFormat::RED . "Що?! " . TextFormat::YELLOW . "E-mail адреса не збігаються! Давайте почнемо знову...\n" . TextFormat::AQUA . "Будь ласка, введіть Вашу e-mail адресу...",
-                    "success" => TextFormat::GREEN . "Чудово! " . TextFormat::YELLOW . "Будь ласка, зачекайте хвильку доки ми створюємо ваш акаунт..."
+                    "confirm" => TextFormat::GREEN . "Хорошая работа! " . TextFormat::YELLOW . "Пожалуйста, подтвердите Ваш e-mail адрес...",
+                    "invalid" => TextFormat::RED . "Неправильно! " . TextFormat::YELLOW . "Этот e-mail адрес недействителен!\n" . TextFormat::AQUA . "Пожалуйста, введите действительный e-mail адрес...",
+                    "match" => TextFormat::RED . "Что?! " . TextFormat::YELLOW . "E-mail адреса не совпадают! Давайте начнём сначала...\n" . TextFormat::AQUA . "Пожалуйста, введите Ваш e-mail адрес...",
+                    "success" => TextFormat::GREEN . "Отлично! " . TextFormat::YELLOW . "Пожалуйста, подождите минутку пока мы создаём Ваш аккаунт..."
                 ]
             ]
         ], "popups" => [
-            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Роз" . TextFormat::GREEN . "ва" . TextFormat::YELLOW . "жа" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
+            TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Раз" . TextFormat::GREEN . "вле" . TextFormat::YELLOW . "ка" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
         ], "kick" => [
-            "sub" => TextFormat::YELLOW . "Відвідайте наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
-            "notlogged" => TextFormat::YELLOW . "Ви були кікнуті тому що Ви '" . TextFormat::RED . "Не ввійшли" . TextFormat::YELLOW . "'!",
-            "loggedin" => TextFormat::YELLOW . "Ви були кікнуті тому що гравець з таким само " . TextFormat::ITALIC . "нікнеймом" . TextFormat::RED . TextFormat::YELLOW . " вже ввійшов.",
-            "advertising" => TextFormat::YELLOW . "Ви були кікнуті через '" . TextFormat::RED . "Рекламування" . TextFormat::YELLOW . "'!",
-            "swear" => TextFormat::YELLOW . "Ви були за вживання '" . TextFormat::RED . "Нецензурних слів" . TextFormat::YELLOW . "'!",
-            "banned" => TextFormat::YELLOW . "Ви були кікнуті тому що ви '" . TextFormat::RESET . "заблоковані" . TextFormat::YELLOW . "'!"
+            "sub" => TextFormat::YELLOW . "Зайдите на наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+            "notlogged" => TextFormat::YELLOW . "Вы были кикнуты, потому что Вы '" . TextFormat::RED . "Не вошли" . TextFormat::YELLOW . "'!",
+            "loggedin" => TextFormat::YELLOW . "Вы были кикнуты, потому что игрок с таким же " . TextFormat::ITALIC . "ником" . TextFormat::RED . TextFormat::YELLOW . " уже вошёл.",
+            "advertising" => TextFormat::YELLOW . "Вы были кикнуты из-за '" . TextFormat::RED . "Рекламирования" . TextFormat::YELLOW . "'!",
+            "swear" => TextFormat::YELLOW . "Вы были кикнуты за употребление '" . TextFormat::RED . "Нецензурных слов" . TextFormat::YELLOW . "'!",
+            "banned" => TextFormat::YELLOW . "Вы были кикнуты, потому что вы '" . TextFormat::RESET . "заблокированы" . TextFormat::YELLOW . "'!"
         ], "games" => [
-            "start" => TextFormat::YELLOW . "Гра починається через " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
-            "timer" => TextFormat::GREEN . "Залишилося часу: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
+            "start" => TextFormat::YELLOW . "Гра начинается через " . TextFormat::AQUA . TextFormat::BOLD . "%0" . TextFormat::RESET . TextFormat::YELLOW . "%1", // %0 is the time in numbers, %1 is the "minutes" or "seconds" tag
+            "timer" => TextFormat::GREEN . "Осталось времени: " . TextFormat::LIGHT_PURPLE . "%0:%1", // %0 are the minutes and %1 are the seconds
             "time" => [
                 "second" => "секунда",
                 "seconds" => "секунд",
@@ -413,8 +413,12 @@ class Languages extends BaseAPI{
             case "UA":
                 $l = "ukrainian";
                 break;
+            case "BY":
+            case "KG":
+            case "KZ":
+            case "TJ":
             case "RU":
-                $l = "russian"; //Going to apply it to multiple countries, a lot of post-soviet countries have russian as their main\secondary language
+                $l = "russian";
                 break;
         }
         $player->setLanguage($l);
