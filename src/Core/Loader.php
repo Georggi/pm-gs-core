@@ -73,12 +73,12 @@ class Loader extends CoreInstance{
      * @param bool $removeParent
      */
     public function recursiveDirectoryCleaner($dir, $removeParent = false){
-        foreach(scandir($dir) as $file){
-            if($file !== "." && $file !== ".."){
-                if(preg_match("/\w\.\w/", $file) !== 1){
-                    $this->recursiveDirectoryCleaner($dir . $file . DIRECTORY_SEPARATOR);
+        foreach(scandir($dir) as $object){
+            if($object !== "." && $object !== ".."){
+                if(is_dir($dir . "/" . $object)){
+                    $this->recursiveDirectoryCleaner($dir . $object . DIRECTORY_SEPARATOR);
                 }else{
-                    unlink($dir . $file);
+                    unlink($dir . $object);
                 }
             }
         }

@@ -714,7 +714,7 @@ class SuperPlayer extends Player{
                     $nbt["NoFall"] = new Int("NoFall", 1);
                 }
                 //$this->setDataProperty(self::DATA_NO_AI, self::DATA_TYPE_INT, 0);
-                $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"]->getValue() | ($nbt["Data"]->getValue() << 8), $send);
+                $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"] | ($nbt["Data"]->getValue() << 8), $send);
                 //$ActualEntity = $this->getLevel()->getEntity($this->getDisguiseID());
                 //$this->setDisguiseDataProperty(self::DATA_NO_AI, self::DATA_TYPE_BYTE, 1);
                 break;
