@@ -9,7 +9,6 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\SignChangeEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityLevelChangeEvent;
-use pocketmine\event\entity\FallingSandFallEvent;
 use pocketmine\event\inventory\InventoryOpenEvent;
 use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\event\Listener;
@@ -25,6 +24,7 @@ use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerPreLoginEvent;
 use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\event\player\PlayerToggleSneakEvent;
 use pocketmine\event\server\DataPacketSendEvent;
 use pocketmine\event\server\QueryRegenerateEvent;
 use pocketmine\item\Item;
@@ -32,8 +32,6 @@ use pocketmine\network\protocol\AddEntityPacket;
 use pocketmine\network\protocol\AddPlayerPacket;
 use pocketmine\network\protocol\MoveEntityPacket;
 use pocketmine\network\protocol\MovePlayerPacket;
-use pocketmine\network\protocol\SetEntityDataPacket;
-use pocketmine\network\protocol\SetEntityMotionPacket;
 use pocketmine\network\protocol\RemoveEntityPacket;
 use pocketmine\network\protocol\RemovePlayerPacket;
 
@@ -48,11 +46,6 @@ class EventHandler implements Listener{
         $this->plugin = $plugin;
     }
 
-    public function onFallingSandFall(FallingSandFallEvent $event){
-        //if($event->getEntity()->getDataPropertyType("NoFall") === 1){
-            $event->setCancelled();
-       //}
-    }
     /**
      * @param QueryRegenerateEvent $event
      *
@@ -476,5 +469,22 @@ class EventHandler implements Listener{
         /** @var SuperPlayer $player */
         $player = $event->getPlayer();
         $this->plugin->closePlayer($player);
+    }
+
+    /**
+     * @param PlayerToggleSneakEvent $event
+     *
+     * @priority HIGHEST
+     */
+    public function onPlayerSneak(PlayerToggleSneakEvent $event){
+        /** @var SuperPlayer $player */
+        $player = $event->getPlayer();
+        if(!$event->isCancelled() && $player->isDisguised()){
+            if($player->getDisguiseID() === SuperPlayer::DISGUISE_ENTITY_FALLING_BLOCK){
+                // TODO: Convert to solid block while sneaking
+            }else{
+                $event->setCancelled(true);
+            }
+        }
     }
 }

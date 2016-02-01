@@ -27,8 +27,6 @@ use pocketmine\network\protocol\SetEntityMotionPacket;
 use pocketmine\network\SourceInterface;
 use pocketmine\permission\PermissionAttachment;
 use pocketmine\Player;
-use pocketmine\utils\TextFormat;
-use pocketmine\utils\UUID;
 
 class SuperPlayer extends Player{
     /** @var Loader */
@@ -172,7 +170,7 @@ class SuperPlayer extends Player{
     }
 
     public function recalculatePermissions(){
-        $this->getPermissionAttachment()->setPermissions($this->getCore()->getRanksAPI()->getRankPermissions($this->getCore()->getRanksAPI()->getPlayerRank($this)));
+        //$this->getPermissionAttachment()->setPermissions($this->getCore()->getRanksAPI()->getRankPermissions($this->getCore()->getRanksAPI()->getPlayerRank($this)));
         parent::recalculatePermissions();
     }
 
@@ -701,22 +699,16 @@ class SuperPlayer extends Player{
         switch($entity){
             case self::DISGUISE_ENTITY_FALLING_BLOCK:
                 if(isset($nbt->Tile) && !isset($nbt->TileID)){
-                    $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["Tile"], $send);
+                    $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"], $send);
                     $nbt["TileID"] = new Int("TileID", $nbt->Tile);
                 }
-                if($nbt["TileID"] < 1){
+                if(!isset($nbt["TileID"]) || $nbt["TileID"] < 1){
                     $nbt["TileID"] = new Int("TileID", Block::SAND);
                 }
                 if(!isset($nbt->Data)){
                     $nbt["Data"] = new Int("Data", 0);
                 }
-                if(!isset($nbt->NoFall)){
-                    $nbt["NoFall"] = new Int("NoFall", 1);
-                }
-                //$this->setDataProperty(self::DATA_NO_AI, self::DATA_TYPE_INT, 0);
-                $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"] | ($nbt["Data"]->getValue() << 8), $send);
-                //$ActualEntity = $this->getLevel()->getEntity($this->getDisguiseID());
-                //$this->setDisguiseDataProperty(self::DATA_NO_AI, self::DATA_TYPE_BYTE, 1);
+                $this->setDisguiseDataProperty(self::DISGUISE_DATA_FALLING_BLOCK_ID, self::DATA_TYPE_INT, $nbt["TileID"]->getValue() | ($nbt["Data"]->getValue() << 8), $send);
                 break;
             default: // Living entities
                 if(isset($nbt->Name) && !isset($nbt->CustomName)){
@@ -906,8 +898,7 @@ class SuperPlayer extends Player{
     public function startDisguise($entity, $nbt = null){
         if($entity === $this->getDisguiseID()){
             return true;
-        }
-        elseif(!$this->isValidID($entity)){
+        }elseif(!$this->isValidID($entity)){
             if(is_string($entity)){
                 $entity = $this->getDisguiseFromString($entity);
                 if($entity === 0){
@@ -947,7 +938,7 @@ class SuperPlayer extends Player{
         $pk2->type = $entity;
         $pk2->x = $this->getX();
         if($entity == self::DISGUISE_ENTITY_FALLING_BLOCK){
-            $pk2->y = $this->getY() + 0.5;//Fix bug with falling send going underground
+            $pk2->y = $this->getY() + 0.5;
         } else {
             $pk2->y = $this->getY();
         }
@@ -985,7 +976,9 @@ class SuperPlayer extends Player{
             }
         }
 
-        $this->setDisguiseDataProperty(self::DISGUISE_DATA_LIVINGENTITY_AI, self::DATA_TYPE_BYTE, false, true, [$this]);
+        if($this->getDisguiseDataProperty(self::DISGUISE_DATA_LIVINGENTITY_AI) === null){
+            $this->setDisguiseDataProperty(self::DISGUISE_DATA_LIVINGENTITY_AI, self::DATA_TYPE_BYTE, true);
+        }
 
         $this->disguise = $entity;
         $this->getCore()->addDisguisedPlayer($this);
