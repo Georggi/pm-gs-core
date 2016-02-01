@@ -472,19 +472,15 @@ class EventHandler implements Listener{
     }
 
     /**
-     * @param PlayerToggleSneakEvent $event
+     * By setting it to 'Normal priority', events with 'Higher priority' will be able to change the Event's 'Cancelled' status
      *
-     * @priority HIGHEST
+     * @param PlayerToggleSneakEvent $event
      */
     public function onPlayerSneak(PlayerToggleSneakEvent $event){
         /** @var SuperPlayer $player */
         $player = $event->getPlayer();
         if(!$event->isCancelled() && $player->isDisguised()){
-            if($player->getDisguiseID() === SuperPlayer::DISGUISE_ENTITY_FALLING_BLOCK){
-                // TODO: Convert to solid block while sneaking
-            }else{
-                $event->setCancelled(true);
-            }
+            $event->setCancelled(true);
         }
     }
 }
