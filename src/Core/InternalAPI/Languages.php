@@ -10,7 +10,7 @@ class Languages extends BaseAPI{
     private /** @noinspection PhpUnusedPrivateFieldInspection */
         $english = [
         "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" . //NO TRANSLATION OF LEFT AND RIGHT
-            TextFormat::YELLOW . "Welcome " . TextFormat::GREEN . "%0" . " to " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "Welcome " . TextFormat::GREEN . "%0" . " to " . TextFormat::AQUA . "Project-MU" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
             TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/",
         "auth" => [
             "login" => [
@@ -68,7 +68,7 @@ class Languages extends BaseAPI{
     private /** @noinspection PhpUnusedPrivateFieldInspection */
         $spanish = [
         "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
-            TextFormat::YELLOW . "¡Bienvenido " . TextFormat::GREEN . "%0" . " a la " . TextFormat::LIGHT_PURPLE . "Red " . TextFormat::AQUA . "MinePocket" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "¡Bienvenido " . TextFormat::GREEN . "%0" . " a la " . TextFormat::LIGHT_PURPLE . "Red " . TextFormat::AQUA . "Project-MU" . TextFormat::YELLOW . "!\n" .
             TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/",
         "auth" => [
             "login" => [
@@ -125,7 +125,7 @@ class Languages extends BaseAPI{
     private /** @noinspection PhpUnusedPrivateFieldInspection */
         $ukrainian = [
         "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
-            TextFormat::YELLOW . "З поверненням " . TextFormat::GREEN . "%0" . " до " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "З поверненням " . TextFormat::GREEN . "%0" . " до " . TextFormat::AQUA . "Project-MU" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
             TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" , //%0 is a player - just to not forget
         "auth" => [
             "login" => [
@@ -183,7 +183,7 @@ class Languages extends BaseAPI{
     private /** @noinspection PhpUnusedPrivateFieldInspection */
         $russian = [
         "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" .
-            TextFormat::YELLOW . "С возвращением " . TextFormat::GREEN . "%0" . " на " . TextFormat::AQUA . "MinePocket" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
+            TextFormat::YELLOW . "С возвращением " . TextFormat::GREEN . "%0" . " на " . TextFormat::AQUA . "Project-MU" . TextFormat::LIGHT_PURPLE . " Network" . TextFormat::YELLOW . "!\n" .
             TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" , //%0 is a player - just to not forget
         "auth" => [
             "login" => [
