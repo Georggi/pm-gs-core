@@ -120,7 +120,7 @@ class Loader extends CoreInstance{
         $color = count($this->getServer()->getOnlinePlayers()) >= $this->getServer()->getMaxPlayers() ? TextFormat::RED : TextFormat::GREEN;
         $counter = $color . "/right/ " . TextFormat::GRAY . $counter . $color . " /left/";
         // The following just checks for "smiles" because we already use "Formatted Color codes" and we will not put bad words into it xD
-        $this->getServer()->getNetwork()->setName($this->getCharts()->convertSmiles(TextFormat::AQUA . "/diamond/ " . TextFormat::BLUE . "MinePocket " . TextFormat::WHITE . "Network " . TextFormat::AQUA . "/diamond/ " . TextFormat::BOLD . $counter));
+        $this->getServer()->getNetwork()->setName($this->getCharts()->convertSmiles(TextFormat::AQUA . "/diamond/ " . TextFormat::AQUA . "Project-MU " . TextFormat::WHITE . "Network " . TextFormat::AQUA . "/diamond/ " . TextFormat::BOLD . $counter));
     }
 
     /** @var string */
