@@ -64,15 +64,14 @@ class Loader extends CoreInstance{
         }
         parent::onDisable();
         // Lets clean up...
-        $this->recursiveDirectoryCleaner($this->getServer()->getDataPath() . "players" . DIRECTORY_SEPARATOR, false);
-        #$this->recursiveDirectoryCleaner($this->getServer()->getDataPath() . "worlds" . DIRECTORY_SEPARATOR, false);
+        $this->recursiveDirectoryCleaner($this->getServer()->getDataPath() . "players" . DIRECTORY_SEPARATOR);
+        #$this->recursiveDirectoryCleaner($this->getServer()->getDataPath() . "worlds" . DIRECTORY_SEPARATOR);
     }
 
     /**
      * @param string $dir
-     * @param bool $removeParent
      */
-    public function recursiveDirectoryCleaner($dir, $removeParent = false){
+    public function recursiveDirectoryCleaner($dir){
         foreach(scandir($dir) as $object){
             if($object !== "." && $object !== ".."){
                 if(is_dir($dir . "/" . $object)){
@@ -82,9 +81,7 @@ class Loader extends CoreInstance{
                 }
             }
         }
-        if($removeParent){
-            rmdir($dir);
-        }
+        rmdir($dir);
     }
 
     /*  .----------------. .----------------. .----------------.
