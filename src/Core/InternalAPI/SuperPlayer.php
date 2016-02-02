@@ -957,14 +957,13 @@ class SuperPlayer extends Player{
         $pk4->metadata = $this->disguiseDataProperties;
 
         // TODO: Display disguise for client
-        /*if(isset($pk)){
-            $pk->eid = 0;
+        /*if(isset($pk) && $pk instanceof RemoveEntityPacket){
             $this->dataPacket($pk);
             $pk->eid = $this->getId();
-        }*/ //CAUSES CRASHING
-        //$this->dataPacket($pk2);
-        //$this->dataPacket($pk3);
-        //$this->dataPacket($pk4);
+        }
+        $this->dataPacket($pk2);
+        $this->dataPacket($pk3);
+        $this->dataPacket($pk4);*/
         foreach($this->getViewers() as $p){
             if($p->isOnline() && $p->canSee($this)){
                 if(isset($pk)){
