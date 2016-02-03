@@ -5,7 +5,7 @@ use Core\BaseFiles\BaseAPI;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 
-class Languages extends BaseAPI{
+class Languages extends BaseAPI{ // TODO: Replace 'MinePocket.com'
     private $translations = [
         "english" => [
             "motd" => TextFormat::YELLOW . "/right/" . TextFormat::GRAY . " ---------------------------- " . TextFormat::YELLOW . "/left/\n" . //NO TRANSLATION OF LEFT AND RIGHT
@@ -44,7 +44,7 @@ class Languages extends BaseAPI{
             ], "popups" => [
                 TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Have " . TextFormat::GREEN . "Fun" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
             ], "kick" => [
-                "sub" => TextFormat::YELLOW . "Be sure to visit us at:\n" . TextFormat::ITALIC . TextFormat::AQUA . "MinePocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+                "sub" => TextFormat::YELLOW . "Be sure to visit us at:\n" . TextFormat::ITALIC . TextFormat::AQUA . "minepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
                 "notlogged" => TextFormat::YELLOW . "You were kicked because you '" . TextFormat::RED . "Didn't logged in" . TextFormat::YELLOW . "'!",
                 "loggedin" => TextFormat::YELLOW . "You were kicked because a player with the same " . TextFormat::ITALIC . "username" . TextFormat::RED . TextFormat::YELLOW . " is already logged in.",
                 "advertising" => TextFormat::YELLOW . "You were kicked for '" . TextFormat::RED . "Advertising" . TextFormat::YELLOW . "'!",
@@ -155,7 +155,7 @@ class Languages extends BaseAPI{
             ], "popups" => [
                 TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Роз" . TextFormat::GREEN . "ва" . TextFormat::YELLOW . "жа" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
             ], "kick" => [
-                "sub" => TextFormat::YELLOW . "Відвідайте наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+                "sub" => TextFormat::YELLOW . "Відвідайте наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "minepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
                 "notlogged" => TextFormat::YELLOW . "Ви були кікнуті, тому що Ви '" . TextFormat::RED . "Не ввійшли" . TextFormat::YELLOW . "'!",
                 "loggedin" => TextFormat::YELLOW . "Ви були кікнуті, тому що гравець з таким само " . TextFormat::ITALIC . "нікнеймом" . TextFormat::RED . TextFormat::YELLOW . " вже ввійшов.",
                 "advertising" => TextFormat::YELLOW . "Ви були кікнуті через '" . TextFormat::RED . "Рекламування" . TextFormat::YELLOW . "'!",
@@ -211,7 +211,7 @@ class Languages extends BaseAPI{
             ], "popups" => [
                 TextFormat::LIGHT_PURPLE . ":D " . TextFormat::AQUA . "Раз" . TextFormat::GREEN . "вле" . TextFormat::YELLOW . "ка" . TextFormat::DARK_BLUE . "йтесь" . TextFormat::RED . "! " . TextFormat::LIGHT_PURPLE . " :D"
             ], "kick" => [
-                "sub" => TextFormat::YELLOW . "Зайдите на наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "nopepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
+                "sub" => TextFormat::YELLOW . "Зайдите на наш сайт:\n" . TextFormat::ITALIC . TextFormat::AQUA . "minepocket.com" . TextFormat::RESET . TextFormat::YELLOW . "!",
                 "notlogged" => TextFormat::YELLOW . "Вы были кикнуты, потому что Вы '" . TextFormat::RED . "Не вошли" . TextFormat::YELLOW . "'!",
                 "loggedin" => TextFormat::YELLOW . "Вы были кикнуты, потому что игрок с таким же " . TextFormat::ITALIC . "ником" . TextFormat::RED . TextFormat::YELLOW . " уже вошёл.",
                 "advertising" => TextFormat::YELLOW . "Вы были кикнуты из-за '" . TextFormat::RED . "Рекламирования" . TextFormat::YELLOW . "'!",
