@@ -13,6 +13,7 @@ use Core\Tasks\LoginTasks;
 use pocketmine\block\Block;
 use pocketmine\entity\Effect;
 use pocketmine\event\TextContainer;
+use pocketmine\math\Vector3;
 use pocketmine\nbt\NBT;
 use pocketmine\nbt\tag\Byte;
 use pocketmine\nbt\tag\Compound;
@@ -441,7 +442,12 @@ class SuperPlayer extends Player{
 
     const DISGUISE_ENTITY_BOAT = 90;
 
+    // Extra data:
+
     // The following constants require the usage of the "setDisguiseDataProperty" method
+    private $fix_disguise_position = [
+        self::DISGUISE_ENTITY_FALLING_BLOCK => [0, 0.5, 0]
+    ];
     const DISGUISE_DATA_AGEABLE_AGE = 12;
     const DISGUISE_DATA_ZOMBIE_IS_VILLAGER = 13;
     const DISGUISE_DATA_ZOMBIE_IS_CONVERTING = 14;
@@ -891,6 +897,22 @@ class SuperPlayer extends Player{
     }
 
     /**
+     * @param int $disguiseID
+     * @param Vector3 $pos
+     * @return Vector3
+     */
+    public function calculateDisguisePosition($disguiseID, Vector3 $pos){
+        $pos = $pos->add(0, $pos->getY() > $this->getY() ? -1.62 : 0); // Workaround for 'Packets', never bother to edit unless 'Client Movement' update
+        if(isset($this->fix_disguise_position[$disguiseID])){
+            $fix = $this->fix_disguise_position[$disguiseID];
+            $pos = $pos->add($fix[0], $fix[1], $fix[2]);
+        }
+        var_dump($pos->__toString());
+        var_dump($this->getPosition()->__toString());
+        return $pos;
+    }
+
+    /**
      * @param string|int $entity
      * @param Compound|string|null $nbt
      * @return bool
@@ -936,13 +958,10 @@ class SuperPlayer extends Player{
         $pk2 = new AddEntityPacket();
         $pk2->eid = $this->getId();
         $pk2->type = $entity;
-        $pk2->x = $this->getX();
-        if($entity == self::DISGUISE_ENTITY_FALLING_BLOCK){
-            $pk2->y = $this->getY() + 0.5;
-        } else {
-            $pk2->y = $this->getY();
-        }
-        $pk2->z = $this->getZ();
+        $pos = $this->calculateDisguisePosition($entity, $this);
+        $pk2->x = $pos->getX();
+        $pk2->y = $pos->getY();
+        $pk2->z = $pos->getZ();
         $pk2->yaw = $this->getYaw();
         $pk2->pitch = $this->getPitch();
         $pk2->metadata = [];

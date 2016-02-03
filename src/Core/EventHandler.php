@@ -28,6 +28,7 @@ use pocketmine\event\player\PlayerToggleSneakEvent;
 use pocketmine\event\server\DataPacketSendEvent;
 use pocketmine\event\server\QueryRegenerateEvent;
 use pocketmine\item\Item;
+use pocketmine\math\Vector3;
 use pocketmine\network\protocol\AddEntityPacket;
 use pocketmine\network\protocol\AddPlayerPacket;
 use pocketmine\network\protocol\MoveEntityPacket;
@@ -38,12 +39,15 @@ use pocketmine\network\protocol\RemovePlayerPacket;
 class EventHandler implements Listener{
     /** @var Loader */
     public $plugin;
+    /** @var Vector3 */
+    private $tempVector;
 
     /**
      * @param Loader $plugin
      */
     public function __construct(Loader $plugin){
         $this->plugin = $plugin;
+        $this->tempVector = new Vector3();
     }
 
     /**
@@ -78,7 +82,6 @@ class EventHandler implements Listener{
             ($disguised = $this->plugin->isDisguised($eid)) !== false /*&&
             $event->getPlayer()->getId() !== $disguised->getId()*/
         ){
-            //TODO: FIX ISSUES WITH DISSAPEARING DISGUISED ENTITIES
             if($packet instanceof MovePlayerPacket){
                 $pk = new CustomMoveEntityPacket();
                 $pk->entities = [$disguised->getId() => [$disguised->getId(), $packet->x, $packet->y, $packet->z, $packet->yaw, $packet->pitch]];
@@ -86,19 +89,18 @@ class EventHandler implements Listener{
                 $pk = new CustomMoveEntityPacket();
                 $pk->entities = $packet->entities;
                 foreach($pk->entities as $id => $values){
-                    if($disguised->getDisguiseID() == $disguised::DISGUISE_ENTITY_FALLING_BLOCK){
-                        $values[2] = $disguised->getY() + 0.5;//To make sure FallingSand doesn't go underground
-                    } else {
-                        $values[2] = $disguised->getY();
-                    }
-                    $pk->entities[$eid] = $values;
+                    $pos = $disguised->calculateDisguisePosition($disguised->getDisguiseID(), $this->tempVector->add($values[1], $values[2], $values[3]));
+                    $values[1] = $pos->getX();
+                    $values[2] = $pos->getY();
+                    $values[3] = $pos->getZ();
+                    $pk->entities[$id] = $values;
                 }
             }elseif($packet instanceof AddPlayerPacket){
                 $pk = new AddEntityPacket();
                 $pk->eid = $disguised->getId();
                 $pk->type = $disguised->getDisguiseID();
                 $pk->x = $packet->x;
-                $pk->y = $packet->y - 1;
+                $pk->y = $packet->y;
                 $pk->z = $packet->z;
                 $pk->yaw = $packet->yaw;
                 $pk->pitch = $packet->pitch;
