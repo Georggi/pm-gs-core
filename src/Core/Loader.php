@@ -7,7 +7,6 @@ use Core\InternalAPI\CoreInstance;
 use Core\InternalAPI\Languages;
 use Core\InternalAPI\Ranks;
 use Core\InternalAPI\SuperPlayer;
-use Core\Tasks\DataCleaner;
 use Core\Tasks\PopupMessages\PopupSend;
 use Core\Tasks\PopupMessages\RandomizeMessages;
 use Core\Tasks\ServersListUpdater\ServersIPListUpdater;
@@ -31,8 +30,6 @@ class Loader extends CoreInstance{
 
         $this->getServer()->getPluginManager()->registerEvents(new EventHandler($this), $this);
 
-        // Tasks
-        $this->getServer()->getScheduler()->scheduleRepeatingTask(new DataCleaner($this), 6000);
         #$this->getServer()->getScheduler()->scheduleRepeatingTask(new ServersListAsyncScheduler($this), 400);
             // Popup Messages
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new RandomizeMessages($this), 200);
