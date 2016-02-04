@@ -41,10 +41,6 @@ class Loader extends CoreInstance{
             $this->unzip($this->getDataFolder() . "world.zip", $this->getServer()->getDataPath() . "worlds" . DIRECTORY_SEPARATOR . "world" . DIRECTORY_SEPARATOR);
         }*/
 
-        $this->charts = new Charts($this);
-        $this->language = new Languages($this);
-        $this->rank = new Ranks($this);
-
         // Server dynamic name...
         $this->updateServerName();
     }
@@ -61,7 +57,7 @@ class Loader extends CoreInstance{
         }
         parent::onDisable();
         // Lets clean up...
-        $this->recursiveDirectoryCleaner($this->getServer()->getDataPath() . "players" . DIRECTORY_SEPARATOR);
+        #$this->recursiveDirectoryCleaner($this->getServer()->getDataPath() . "players" . DIRECTORY_SEPARATOR); // Not needed with Katana?
         #$this->recursiveDirectoryCleaner($this->getServer()->getDataPath() . "worlds" . DIRECTORY_SEPARATOR);
     }
 
@@ -69,16 +65,18 @@ class Loader extends CoreInstance{
      * @param string $dir
      */
     public function recursiveDirectoryCleaner($dir){
-        foreach(scandir($dir) as $object){
-            if($object !== "." && $object !== ".."){
-                if(is_dir($dir . "/" . $object)){
-                    $this->recursiveDirectoryCleaner($dir . $object . DIRECTORY_SEPARATOR);
-                }else{
-                    unlink($dir . $object);
+        if(is_dir($dir)){
+            foreach(scandir($dir) as $object){
+                if($object !== "." && $object !== ".."){
+                    if(is_dir($dir . "/" . $object)){
+                        $this->recursiveDirectoryCleaner($dir . $object . DIRECTORY_SEPARATOR);
+                    }else{
+                        unlink($dir . $object);
+                    }
                 }
             }
+            rmdir($dir);
         }
-        rmdir($dir);
     }
 
     /*  .----------------. .----------------. .----------------.
@@ -111,13 +109,9 @@ class Loader extends CoreInstance{
     /**
      * @param bool $playerQuit
      */
-    public function updateServerName($playerQuit = false){
-        $count = count($this->getServer()->getOnlinePlayers());
-        $counter = ($playerQuit ? $count - 1 : $count) . "/" . $this->getServer()->getMaxPlayers();
-        $color = count($this->getServer()->getOnlinePlayers()) >= $this->getServer()->getMaxPlayers() ? TextFormat::RED : TextFormat::GREEN;
-        $counter = $color . "/right/ " . TextFormat::GRAY . $counter . $color . " /left/";
+    public function updateServerName(){
         // The following just checks for "smiles" because we already use "Formatted Color codes" and we will not put bad words into it xD
-        $this->getServer()->getNetwork()->setName($this->getCharts()->convertSmiles(TextFormat::AQUA . "/diamond/ " . TextFormat::AQUA . "Project-MU " . TextFormat::WHITE . "Network " . TextFormat::AQUA . "/diamond/ " . TextFormat::BOLD . $counter));
+        $this->getServer()->getNetwork()->setName($this->getCharts()->convertSmiles(TextFormat::AQUA . "/diamond/ " . TextFormat::AQUA . "Project-MU " . TextFormat::WHITE . "Network " . TextFormat::AQUA . "/diamond/ "));
     }
 
     /** @var string */
@@ -397,6 +391,9 @@ class Loader extends CoreInstance{
      * @return Charts
      */
     public function getCharts(){
+        if($this->charts === null){
+            $this->charts = new Charts($this);
+        }
         return $this->charts;
     }
 
@@ -536,6 +533,9 @@ class Loader extends CoreInstance{
      * @return Languages
      */
     public function getLanguagesAPI(){
+        if($this->language === null){
+            $this->language = new Languages($this);
+        }
         return $this->language;
     }
 
@@ -554,6 +554,9 @@ class Loader extends CoreInstance{
      * @return Ranks
      */
     public function getRanksAPI(){
+        if($this->rank === null){
+            $this->rank = new Ranks($this);
+        }
         return $this->rank;
     }
 
