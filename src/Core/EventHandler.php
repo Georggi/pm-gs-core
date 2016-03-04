@@ -203,6 +203,7 @@ class EventHandler implements Listener{
     public function onPlayerJoin(PlayerJoinEvent $event){
         /** @var SuperPlayer $player */
         $player = $event->getPlayer();
+        $this->plugin->updateServerName(false); // TODO: Remove
         $event->setJoinMessage("");
         foreach($player->getLevel()->getPlayers() as $p){
             /** @var SuperPlayer $p */
@@ -231,6 +232,7 @@ class EventHandler implements Listener{
     public function onPlayerKick(PlayerKickEvent $event){
         /** @var SuperPlayer $player */
         $player = $event->getPlayer();
+        $this->plugin->updateServerName(true);
         $this->plugin->closePlayer($player);
     }
 
@@ -464,6 +466,7 @@ class EventHandler implements Listener{
      * @ignoreCancelled true
      */
     public function onPlayerQuit(PlayerQuitEvent $event){
+        $this->plugin->updateServerName(true); // TODO: Remove
         $event->setQuitMessage("");
         /** @var SuperPlayer $player */
         $player = $event->getPlayer();
